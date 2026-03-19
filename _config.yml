@@ -1,0 +1,73 @@
+# Book settings
+# Learn more at https://jupyterbook.org/customize/config.html
+
+title: "Basic Concepts of Fixed Income: Convexity And Interest Risk
+Hundred Bonds"
+author: 'Financial Python'
+copyright: "2026, Arbitrage Partners"  # Updated to your specific name/year
+ 
+html:
+  use_issues_button: true
+  # In 1.1.4, use this key in the HTML block to avoid killing launch buttons
+  navbar_extra_footer: |
+    <div style="padding-top: 10px; border-top: 1px solid #eee;">
+      <strong>My Library</strong><br>
+      <a href="https://patrickjhess.github.io/Vol-1/">Volume 1: Basics</a><br>
+      <a href="https://patrickjhess.github.io/Vol-2/">Volume 2: Intermediate</a><br>
+      <a href="https://patrickjhess.github.io/Vol-3/">Volume 3: Advanced</a>
+    </div>
+
+
+launch_buttons:
+  thebe: true
+  colab_url: "https://colab.research.google.com"
+  binderhub_url: "https://mybinder.org"
+
+# Force re-execution of notebooks on each build.
+# See https://jupyterbook.org/content/execute.html
+execute:
+  execute_notebooks: force
+
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_documents:
+    targetname: book.tex
+
+# Add a bibtex file so that we can create citations
+bibtex_bibfiles:
+  - references.bib
+
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/PatrickJHess/Vol-3-Chap-8  # Online location of your book
+#  path_to_book: docs  # Optional path to your book, relative to the repository root
+  branch: master  # Which branch of the repository should be used when creating links (optional)
+
+# Add GitHub buttons to your book
+# See https://jupyterbook.org/customize/config.html#add-a-link-to-your-repository
+
+
+
+sphinx:
+  extra_extensions:
+    - sphinx_sitemap
+  config:
+    html_static_path: ['_static']
+    html_js_files:
+      - ['open_new_tab.js', {priority: 200}]
+    html_css_files:
+      - custom.css
+    html_baseurl: "https://patrickjhess.github.io/Vol-3-Chap-8/" # Change per repo
+    sitemap_url_scheme: "{link}" # Recommended for cleaner URLs
+    html_extra_path:
+      - google6c5f2d11d0c13eff.html 
+    mathjax_path: https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js
+    # DO NOT put html_theme_options here; it kills the launch buttons
+    thebe_config:
+      selector: ".thebe,.cell"
+      repository_url: "https://github.com/patrickjhess/Vol-3-Chap-8"
+      repository_branch: "master"
+parse:
+  myst_enable_extensions:
+    - amsmath
+    - dollarmath
