@@ -1,0 +1,644 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>What is convexity and why does it matter &#8212; Basic Concepts of Fixed Income: Convexity And Interest Risk Hundred Bonds</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=b47fed4d" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/open_new_tab.js?v=9fade34f"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Define_Convexity';</script>
+    <script src="_static/open_new_tab.js?v=9fade34f"></script>
+    <link rel="canonical" href="https://patrickjhess.github.io/Vol-3-Chap-8/Define_Convexity.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Convexity And Parallel Shifts in Yields to Maturity" href="Illustrating_The_Effects_With_Parallel_Shifts_In_Yields_To_Maturity.html" />
+    <link rel="prev" title="Convexity And Interest Rate Risk" href="Chapter_Eight_Highlights.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Basic Concepts of Fixed Income: Convexity And Interest Risk Hundred Bonds</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Financial Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Interacting%20With%20Jupyter%20Books.html">Working with Jupyter Books</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Basic Concepts of Fixed Income: Chapter Eight</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Chapter_Eight_Highlights.html"><em><strong>Convexity And Interest Rate Risk</strong></em></a><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">What is convexity and why does it matter</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Illustrating_The_Effects_With_Parallel_Shifts_In_Yields_To_Maturity.html">Convexity And Parallel Shifts in Yields to Maturity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Changes_In_Par_Yields_Between_1993_And_2025.html">Volatility and Corrleation of Par Yields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Changing_Slope_And_Shape_Of_Term_Structure.html">Changing Slope and Shape of Term Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter_Eight_Summary.html"><em><strong>Summarizing Convexity and Interest Rate Risk</strong></em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="imported_functions_Eight.html"><em><strong>Functions Imported by Chapter Eight.</strong></em></a></li>
+</ul><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hub &amp; Other Chapters Of Basic Concepts Of Fixed Income</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://patrickjhess.github.io/Volume-Three-Hub/">Hub For Basic Concepts Of Fixed Income</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://patrickjhess.github.io/Vol-3-Chap-1/">Chapter One: Basic Bond Concepts and the Term Structure of Interest Rates</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://patrickjhess.github.io/Vol-3-Chap-2-Chap-3/">Chapters Two and Three: Accrued Interest and Bond Pay Data</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://patrickjhess.github.io/Vol-3-Chap-4/">Chapters Four: Bootstrapping The Term Structure With Coupon Bonds</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://patrickjhess.github.io/Vol-3-Chap-5/">Chapter Five: Yield To Maturity</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://patrickjhess.github.io/Vol-3-Chap-6/">Chapter Six: Yield To Maturity</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://patrickjhess.github.io/Vol-3-Chap-7/">Chapter Seven: Measuring Interest Risk With Duration</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+<a href="https://github.com/PatrickJHess/Vol-3-Chap-8/issues/new?title=Issue%20on%20page%20%2FDefine_Convexity.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button"
+   title="Open an issue"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Define_Convexity.md" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.md</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>What is convexity and why does it matter</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#duration-revisited">Duration Revisited</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-convexity-via-taylor-series-expansion">Introducing Convexity via Taylor Series Expansion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-convexity-formula">The Convexity Formula</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convexity-and-duration-predict-bond-price-changes">Convexity and Duration Predict Bond Price Changes.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-assume-that-the-probability-of-the-increased-and-decreased-ytm-is-0-5-calculate-the-effect-of-convexity-on-the-expected-bond-prices"><font color="green">Application: Assume that the probability of the increased and decreased YTM is 0.5. Calculate the effect of convexity on the expected bond prices.</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convexity-and-duration-a-portfolio-perspective">Convexity and Duration: A Portfolio Perspective</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="what-is-convexity-and-why-does-it-matter">
+<h1>What is convexity and why does it matter<a class="headerlink" href="#what-is-convexity-and-why-does-it-matter" title="Link to this heading">#</a></h1>
+<p>Chapter Seven introduces duration as the primary measure of interest rate risk for bonds. It’s natural to draw parallels between duration and the Capital Asset Pricing Model’s (CAPM) beta, it’s important to recognize a key difference: beta is a parameter of an equilibrium model, offering insights beyond mere empirical observation. Duration is less profound; it is a powerful mathematical tool but does not offer predictions about expected bond returns. It is, however, exceedingly useful math.<span class="math notranslate nohighlight">\(^{1}\)</span></p>
+<p>This chapter builds upon this “useful math” by incorporating the second derivative of the bond’s present value formula to define bond convexity, a concept mentioned briefly in Chapter Seven;  we now explore in depth.</p>
+<section id="duration-revisited">
+<h2>Duration Revisited<a class="headerlink" href="#duration-revisited" title="Link to this heading">#</a></h2>
+<p>As a refresher, a bond’s duration is defined as the negative of its first derivative with respect to its yield to maturity (<span class="math notranslate nohighlight">\(\text{ytm}\)</span>), divided by the bond’s value. Duration forms the basis of the first-order Taylor series approximation for changes in bond values due to changes in <span class="math notranslate nohighlight">\(\text{ytm}\)</span>:</p>
+<div class="math notranslate nohighlight">
+\[\text{Change in Value} \approx -\Delta \text{ytm} \times \text{Modified Duration}\]</div>
+<p>In terms of the mathematical components:</p>
+<div class="math notranslate nohighlight">
+\[V(\text{ytm}+\Delta \text{ytm})-V(\text{ytm})\approx -\Delta \text{ytm}\times\sum_{i=1}^{N}t_i\times Cash\ Flow_{t_i} \times e^{-\text{ytm}\times t_i}\]</div>
+</section>
+<section id="introducing-convexity-via-taylor-series-expansion">
+<h2>Introducing Convexity via Taylor Series Expansion<a class="headerlink" href="#introducing-convexity-via-taylor-series-expansion" title="Link to this heading">#</a></h2>
+<p>The general form of a Taylor series expansion is:</p>
+<div class="math notranslate nohighlight">
+\[f(x+\Delta x)\approx \sum\_{i=1}^{N}\frac{d^{i}f(x)}{dx^{i}}\times\frac{1}{i\!}\Delta x^{i}\]</div>
+<p>Convexity is defined using the second-order Taylor series expansion:</p>
+<div class="math notranslate nohighlight">
+\[f(x+\Delta x)\thickapprox f(x)+\frac{df(x)}{dx}\times\Delta x+\frac{1}{2}\frac{d^{2}f(x)}{dx^{2}}\times\Delta x^{2}\]</div>
+<p>Applying this second-order expansion to the present value formula yields a more accurate estimate of the change in bond value:</p>
+<p>\begin{aligned}
+V(\text{ytm}+\Delta \text{ytm})-V(\text{ytm})\approx &amp; -\Delta \text{ytm}\times\sum_{i=1}^{N}t_i\times Cash\ Flow_{t_i} \times e^{-\text{ytm}\times t_i} \ &amp; + \frac{\Delta \text{ytm}^{2}}{2}\times\sum_{i=1}^{N}t_i^{2}\times Cash\ Flow_{t_i} \times e^{-\text{ytm}\times t_i}
+\end{aligned}</p>
+</section>
+<section id="the-convexity-formula">
+<h2>The Convexity Formula<a class="headerlink" href="#the-convexity-formula" title="Link to this heading">#</a></h2>
+<p>Mirroring the definition of duration, convexity is calculated by dividing the bond’s second derivative with respect to <span class="math notranslate nohighlight">\(\text{ytm}\)</span> by the bond’s value:</p>
+<div class="math notranslate nohighlight">
+\[Convexity =\frac{\sum_{i=1}^{N}t_i^{2}\times Cash\ Flow_{t_i} \times e^{-\text{ytm}\times t_i}}{V(\text{ytm})}\]</div>
+</section>
+<section id="convexity-and-duration-predict-bond-price-changes">
+<h2>Convexity and Duration Predict Bond Price Changes.<a class="headerlink" href="#convexity-and-duration-predict-bond-price-changes" title="Link to this heading">#</a></h2>
+<p>The change in bond price (<span class="math notranslate nohighlight">\(\Delta V\)</span>) can be predicted using a second-order Taylor expansion that incorporates both duration and convexity, as shown below:</p>
+<br>
+<div class="math notranslate nohighlight">
+\[\Delta V \approx (Duration \times -\Delta \text{ytm} + \frac{1}{2} \times Convexity \times \Delta \text{ytm}^{2}) \times V(\text{ytm})\]</div>
+<br>
+<p>The change in yield to maturity (<span class="math notranslate nohighlight">\(\Delta \text{ytm}\)</span>) can be broken down into its expected value (<span class="math notranslate nohighlight">\(E(\Delta \text{ytm})\)</span>) and its deviation from that expected value:</p>
+<br>
+<div class="math notranslate nohighlight">
+\[\Delta \text{ytm} = (\Delta \text{ytm} - E(\Delta \text{ytm}) + E(\Delta \text{ytm})\]</div>
+<br>
+<p>The squared change in yield to maturity is:</p>
+<br>
+<div class="math notranslate nohighlight">
+\[\Delta \text{ytm}^{2} = (\Delta \text{ytm} - E(\Delta \text{ytm})^{2} + E(\Delta \text{ytm})^{2}+2 \times (\Delta \text{ytm} - E(\Delta \text{ytm}) \times E(\Delta \text{ytm})\]</div>
+<br>
+<p>Consequently, the expected value of the squared change in yield to maturity is:</p>
+<br>
+<div class="math notranslate nohighlight">
+\[E(\Delta \text{ytm}^{2}) = \sigma_{\Delta \text{ytm}}^{2}+E(\Delta \text{ytm})^{2}\]</div>
+<br>
+<p>Substituting the expected values into the Taylor expansion, the expected change in the bond’s value is:</p>
+<br>
+<div class="math notranslate nohighlight">
+\[E(\Delta V) =(Duration \times -E(\Delta \text{ytm})+ \frac{1}{2} \times Convexity \times (\sigma_{\Delta \text{ytm}}^{2}+E(\Delta \text{ytm})^{2}) \times V(\text{ytm})\]</div>
+<br>
+<p>The second-order Taylor expansion reveals two primary effects on the expected bond price changes:</p>
+<br>
+<ul class="simple">
+<li><p><span class="math notranslate nohighlight">\(\qquad\textbf{Direction:}\quad   -Duration\times E(\Delta \text{ytm})\)</span></p></li>
+<li><p><span class="math notranslate nohighlight">\(\qquad\textbf{Volatility:}\quad  \frac{1}{2}\times Convexity\times (\sigma^{2}_{\Delta \text{ytm}}+E(\Delta \text{ytm})^2)\)</span></p></li>
+</ul>
+</section>
+<section id="application-assume-that-the-probability-of-the-increased-and-decreased-ytm-is-0-5-calculate-the-effect-of-convexity-on-the-expected-bond-prices">
+<h2><font color='green'>Application: Assume that the probability of the increased and decreased YTM is 0.5. Calculate the effect of convexity on the expected bond prices.</font><a class="headerlink" href="#application-assume-that-the-probability-of-the-increased-and-decreased-ytm-is-0-5-calculate-the-effect-of-convexity-on-the-expected-bond-prices" title="Link to this heading">#</a></h2>
+<br>
+<div>
+<p><strong>Settlement date is January 31<span class="math notranslate nohighlight">\(^{st}\)</span> 2026</strong></p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Maturity</p></th>
+<th class="head"><p>Coupon</p></th>
+<th class="head"><p>Initial YTM</p></th>
+<th class="head"><p>Duration</p></th>
+<th class="head"><p>Convexity</p></th>
+<th class="head"><p>Increased YTM</p></th>
+<th class="head"><p>Decreased YTM</p></th>
+<th class="head"><p>Increased YTM</p></th>
+<th class="head"><p>Decreased YTM</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>   December 31<span class="math notranslate nohighlight">\(^{st}\)</span> 2035</p></td>
+<td><p>     5.0</p></td>
+<td><p>     5%</p></td>
+<td><p>     7.9</p></td>
+<td><p>     71.9</p></td>
+<td><p>        7%</p></td>
+<td><p>        3%</p></td>
+<td><p>     5.25%</p></td>
+<td><p>     4.75%</p></td>
+</tr>
+<tr class="row-odd"><td><p>   December 31<span class="math notranslate nohighlight">\(^{st}\)</span> 2055</p></td>
+<td><p>     5.0</p></td>
+<td><p>     5%</p></td>
+<td><p>     15.7</p></td>
+<td><p>     357.1</p></td>
+<td><p>        7%</p></td>
+<td><p>        3%</p></td>
+<td><p>     5.25%</p></td>
+<td><p>     4.75%</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<br>
+<p>see <a class="reference external" href="https://colab.research.google.com/drive/1WL30MXvTfn3tTNQaaas2bmHn3G5E3lK4#scrollTo=kfPak5yXNMEq">Chapter Eight Hints: Calculate the effect of convexity on the expected bond prices</a>, and check the <a class="reference external" href="https://colab.research.google.com/drive/1jULdrPyul6Xs5Zrm4ysXezNNuJG7K6l6#scrollTo=kfPak5yXNMEq">expected results here</a>.</p>
+</div>
+</section>
+<section id="convexity-and-duration-a-portfolio-perspective">
+<h2>Convexity and Duration: A Portfolio Perspective<a class="headerlink" href="#convexity-and-duration-a-portfolio-perspective" title="Link to this heading">#</a></h2>
+<p>The duration of a bond is calculated as the weighted average of the time to each of the bond’s payments. The weight for each payment is determined by the present value of that cash flow relative to the total value of the bond.</p>
+<br>
+<div class="math notranslate nohighlight">
+\[\text{Duration} = \sum_{i=1}^{N}t_i \times w_{t_i}\]</div>
+<br>
+<div class="math notranslate nohighlight">
+\[\text{Where } w_{t_i} = \frac{\text{Cash Flow}_{t_i} \times e^{-\text{ytm} \times t_i}}{V(-\text{ytm})} \quad \text{and} \quad \sum_{i=1}^{N}w_{t_i} = 1\]</div>
+<br>
+<p>Similarly, the bond’s convexity is defined as the weighted average of the squared payment dates, using the identical weights as those used for duration:</p>
+<br>
+<div class="math notranslate nohighlight">
+\[\text{Convexity} = \sum_{i=1}^{N}t_i^{2} \times w_{t_i}\]</div>
+<br>
+<p>The concepts of duration and convexity fundamentally incorporate the arbitrage principle, much like the present value calculation. A bond can be conceptualized as a composite portfolio of zero-coupon bonds, where each component bond represents a single cash flow weighted by its present value. Consequently, a bond’s overall duration and convexity are simply the sum of the durations and convexities of these individual cash flows, weighted by their contribution to the total portfolio value. This analogy highlights that duration and convexity of a bond is akin to the convexity of a portfolio and that is simply the weighted average of the duration and convexity of all the cash flows of the portfolio.</p>
+<hr class="docutils" />
+<p><span class="math notranslate nohighlight">\(^{1}\)</span>Of course beta can be viewed as a useful statistical relation and not a parameter of an equilibrium.  That view is in the spirit of much of total risk or factor investing. Beta and the CAPM are covered in more depth in the <em>Asset Pricing</em> volume.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "patrickjhess/Vol-3-Chap-8",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Chapter_Eight_Highlights.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><em><strong>Convexity And Interest Rate Risk</strong></em></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Illustrating_The_Effects_With_Parallel_Shifts_In_Yields_To_Maturity.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Convexity And Parallel Shifts in Yields to Maturity</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#duration-revisited">Duration Revisited</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#introducing-convexity-via-taylor-series-expansion">Introducing Convexity via Taylor Series Expansion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-convexity-formula">The Convexity Formula</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convexity-and-duration-predict-bond-price-changes">Convexity and Duration Predict Bond Price Changes.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-assume-that-the-probability-of-the-increased-and-decreased-ytm-is-0-5-calculate-the-effect-of-convexity-on-the-expected-bond-prices"><font color="green">Application: Assume that the probability of the increased and decreased YTM is 0.5. Calculate the effect of convexity on the expected bond prices.</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#convexity-and-duration-a-portfolio-perspective">Convexity and Duration: A Portfolio Perspective</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Financial Python
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Arbitrage Partners.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

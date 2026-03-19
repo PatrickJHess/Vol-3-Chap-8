@@ -1,0 +1,955 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Convexity And Parallel Shifts in Yields to Maturity &#8212; Basic Concepts of Fixed Income: Convexity And Interest Risk Hundred Bonds</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=b47fed4d" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/open_new_tab.js?v=9fade34f"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Illustrating_The_Effects_With_Parallel_Shifts_In_Yields_To_Maturity';</script>
+    <script src="_static/open_new_tab.js?v=9fade34f"></script>
+    <link rel="canonical" href="https://patrickjhess.github.io/Vol-3-Chap-8/Illustrating_The_Effects_With_Parallel_Shifts_In_Yields_To_Maturity.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Volatility and Corrleation of Par Yields" href="Changes_In_Par_Yields_Between_1993_And_2025.html" />
+    <link rel="prev" title="Convexity And Interest Rate Risk" href="Chapter_Eight_Highlights.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Basic Concepts of Fixed Income: Convexity And Interest Risk Hundred Bonds</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Financial Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Interacting%20With%20Jupyter%20Books.html">Working with Jupyter Books</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Basic Concepts of Fixed Income: Chapter Eight</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Chapter_Eight_Highlights.html"><em><strong>Convexity And Interest Rate Risk</strong></em></a><ul class="current">
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Convexity And Parallel Shifts in Yields to Maturity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Changes_In_Par_Yields_Between_1993_And_2025.html">Volatility and Corrleation of Par Yields</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Changing_Slope_And_Shape_Of_Term_Structure.html">Changing Slope and Shape of Term Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter_Eight_Summary.html"><em><strong>Summarizing Convexity and Interest Rate Risk</strong></em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="imported_functions_Eight.html"><em><strong>Functions Imported by Chapter Eight.</strong></em></a></li>
+</ul><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hub &amp; Other Chapters Of Basic Concepts Of Fixed Income</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://patrickjhess.github.io/Volume-Three-Hub/">Hub For Basic Concepts Of Fixed Income</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://patrickjhess.github.io/Vol-3-Chap-1/">Chapter One: Basic Bond Concepts and the Term Structure of Interest Rates</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://patrickjhess.github.io/Vol-3-Chap-2-Chap-3/">Chapters Two and Three: Accrued Interest and Bond Pay Data</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://patrickjhess.github.io/Vol-3-Chap-4/">Chapters Four: Bootstrapping The Term Structure With Coupon Bonds</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://patrickjhess.github.io/Vol-3-Chap-5/">Chapter Five: Yield To Maturity</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://patrickjhess.github.io/Vol-3-Chap-6/">Chapter Six: Yield To Maturity</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://patrickjhess.github.io/Vol-3-Chap-7/">Chapter Seven: Measuring Interest Risk With Duration</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/PatrickJHess/Vol-3-Chap-8/master?urlpath=tree/Illustrating_The_Effects_With_Parallel_Shifts_In_Yields_To_Maturity.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/PatrickJHess/Vol-3-Chap-8/blob/master/Illustrating_The_Effects_With_Parallel_Shifts_In_Yields_To_Maturity.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/PatrickJHess/Vol-3-Chap-8/issues/new?title=Issue%20on%20page%20%2FIllustrating_The_Effects_With_Parallel_Shifts_In_Yields_To_Maturity.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button"
+   title="Open an issue"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Illustrating_The_Effects_With_Parallel_Shifts_In_Yields_To_Maturity.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Convexity And Parallel Shifts in Yields to Maturity</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-the-notebook">Preparing the notebook</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-libraries-and-functions">Importing libraries and functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-function-calc-convexity">The function <font color="green">calc_convexity</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-custom-module-and-importing-functions">Adding a custom module and importing functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demonstrating-the-effect-of-convexity-with-two-bonds">Demonstrating the effect of convexity with two bonds</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-zero-duration-long-convexity-trade">A zero-duration long-convexity trade</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-the-gross-profits-of-the-convexity-trade">Calculate the gross profits of the convexity trade</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphing-the-gross-profits-of-the-convexity-trade">Graphing the gross profits of the convexity trade</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-calculate-and-graph-the-gross-profits-of-the-convexity-trade-using-a-30-year-and-five-year-bond"><font color="green">Application: Calculate and graph the gross profits of the convexity trade using a 30-year and five-year bond.</font></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="convexity-and-parallel-shifts-in-yields-to-maturity">
+<h1>Convexity And Parallel Shifts in Yields to Maturity<a class="headerlink" href="#convexity-and-parallel-shifts-in-yields-to-maturity" title="Link to this heading">#</a></h1>
+<p>Duration and convexity measure how bond prices are affected by changes in interest rates.  Duration measures the direction and convexity, the volatility.  Both measures are mathematical calculations that follow from the present value formula. As dicussed in Chapter Seven, duration is thought of as a measure of the riskiness of a bond to changes in interest rate. As noted in that chapter, it provides an accurate ranking of the interest rate risk of bonds for small parallel changes in interest rates.  As noted, changes in interest rates often result from a change in the shape or slope of the term structure of interest rates. Duration will misclassify the riskiness of bonds for changes due to variations in the shape or slope of the term structure.</p>
+<p>We illustrate the convexity effect using a number of simulations. In this notebook we consider the pricing behavior of a portfolio of two bonds that have different durations and convexities. The bonds are used to create a zero duration - long convexity position and profits are calculated for changes in the bonds’ yields to maturity. In this notebook the yield changes are modeled as parallel shifts in the term structure. For example, all the spot rates are increased or decreased by the same amount. In the two notebooks that follow the yield curve change assumptions are compared to historical data and then altered to include more complex scenarios.</p>
+<p>One quick caution. Because duration and convexity are inextricably linked conceptually, readers are well served by completing <a class="reference external" href="https://patrickjhess.github.io/Vol-3-Chap-7/Measuring_Interest_Rate_Risk_With_Duration.html#application-calculate-duration-with-different-maturities-coupons-and-rates">Chapter Seven</a> before beginning this chapter.</p>
+<section id="preparing-the-notebook">
+<h2>Preparing the notebook<a class="headerlink" href="#preparing-the-notebook" title="Link to this heading">#</a></h2>
+<section id="importing-libraries-and-functions">
+<h3>Importing libraries and functions<a class="headerlink" href="#importing-libraries-and-functions" title="Link to this heading">#</a></h3>
+<p>It’s good practice to import all required libraries and modules in the first code cell of a notebook. A practice followed here. If a library is already installed, it’s imported to the notebook.  If a library is not installed, it is installed and then imported.</p>
+<p>The standard Python installation includes the first five imports: (<font color='green'>os, sys</font>, <font color='green'>requests</font>, <font color='green'>types</font>, and <font color='green'>datetime</font> and <font color='green'>dateutil</font>).  <font color='green'>os</font> and <font color='green'>sys</font>  facilitate interaction with the operating system.  The <font color='green'>requests</font> module enables sending and retrieving data from external URL addresses; in this notebook, it’s specifically used to access files from DropBox. The <font color='green'>types</font> module creates the module from the Python code accessed from DropBox.  <font color='green'>datetime</font> and <font color='green'>dateutil</font> create and manipulate datetime objects.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">types</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModuleType</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">date</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dateutil.relativedelta</span><span class="w"> </span><span class="kn">import</span> <span class="n">relativedelta</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>numpy
+    <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>pandas
+    <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="the-function-calc-convexity">
+<h2>The function <font color='green'>calc_convexity</font><a class="headerlink" href="#the-function-calc-convexity" title="Link to this heading">#</a></h2>
+<p>The <font color='green'>calc_convexity</font> function is structurally the same as the <font color='green'>calc_duration</font> function, with key differences in how they utilize the results of the helper function <font color='green'>bond_pv</font>.</p>
+<p>Both functions require identical arguments.<br />
+The <font color='green'>calc_duration</font> function calculates the bond’s present value and its first derivative using <font color='green'>bond_pv</font>:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate present value and first derivative</span>
+<span class="n">value</span><span class="p">,</span><span class="n">derivative_first</span><span class="p">,</span><span class="n">_</span><span class="o">=</span><span class="n">bond_pv</span><span class="p">(</span><span class="n">rates</span><span class="o">=</span><span class="n">rates</span><span class="p">,</span><span class="n">data_dict</span><span class="o">=</span><span class="n">data_dict</span><span class="p">)</span>
+
+<span class="c1"># calculate duration and return value</span>
+<span class="n">duration</span><span class="o">=-</span><span class="n">derivative_first</span><span class="o">/</span><span class="n">value</span>
+<span class="k">return</span> <span class="n">duration</span>
+</pre></div>
+</div>
+<p>The <font color='green'>calc_convexity</font>  function ignores the first derivative and instead focuses on the present value and the second derivative:</p>
+<div class="highlight-py notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate present value and second derivative</span>
+<span class="n">value</span><span class="p">,</span><span class="n">_</span><span class="p">,</span><span class="n">derivative_second</span><span class="o">=</span><span class="n">bond_pv</span><span class="p">(</span><span class="n">rates</span><span class="o">=</span><span class="n">rates</span><span class="p">,</span><span class="n">data_dict</span><span class="o">=</span><span class="n">data_dict</span><span class="p">)</span>
+
+<span class="c1"># calculate convexity and return value</span>
+<span class="n">convexity</span><span class="o">=</span><span class="n">derivative_second</span><span class="o">/</span><span class="n">value</span>
+<span class="k">return</span> <span class="n">convexity</span>
+</pre></div>
+</div>
+<p>Arguments must be passed for the bond’s price, maturity, and coupon.  Settlement defaults to the current date and the frequency of payment to semi-annual.</p>
+<p>Arguments must be:</p>
+<ul class="simple">
+<li><p>maturity and settlement must be date or datetime objects</p></li>
+<li><p>price and coupon must be floating points or integers</p></li>
+<li><p>frequency must be an integer 1 ,2, 4, or 12.</p></li>
+</ul>
+</section>
+<section id="adding-a-custom-module-and-importing-functions">
+<h2>Adding a custom module and importing functions<a class="headerlink" href="#adding-a-custom-module-and-importing-functions" title="Link to this heading">#</a></h2>
+<p>The <font color='green'>module_basic_concepts_fixed_income</font> custom module contains functions utilized in the notebooks within the “Basic Concepts of Fixed Income” volume. This module is accessed from Dropbox using <font color='green'>requests</font>.</p>
+<p>You have the flexibility to choose the module name; in this instance,  <font color='green'>basic_concepts_fixed_income</font> is assigned to  <font color='green'>module_name</font>. The URL for access is provided by Dropbox. The module is instantiated with  <font color='green'>ModuleType</font> using the chosen  <font color='green'>module_name</font>. Once created, the module becomes accessible in the notebook’s memory, though it is not added to a drive.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">url</span><span class="o">=</span> <span class="s1">&#39;https://www.dropbox.com/scl/fi/4y5hjxlfphh1ngvbgo77q/</span><span class="se">\</span>
+<span class="s1">module_-basic_concepts_fixed_income.py?rlkey=6oxi7mgka42veaat79hcv8boz&amp;st=stuou11h&amp;dl=1&#39;</span>
+<span class="n">module_name</span><span class="o">=</span><span class="s1">&#39;module_basic_concepts_fixed_income&#39;</span>
+<span class="k">try</span><span class="p">:</span>
+  <span class="n">response</span><span class="o">=</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+  <span class="n">module</span><span class="o">=</span><span class="n">ModuleType</span><span class="p">(</span><span class="n">module_name</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>The <font color='green'>exec()</font> function executes the Python code returned by <font color='green'>request.get()</font>. It assigns functions and variables to <font color='green'>sys.module[module_name]</font>, making the module available to the notebook.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exec</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">,</span><span class="n">module</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">module</span><span class="p">[</span><span class="n">module_name</span><span class="p">]</span><span class="o">=</span><span class="n">module</span>
+</pre></div>
+</div>
+<p>Five functions are imported from the module including a new <font color='green'>calc_convexity</font>.  The only change between <font color='green'>calc_duration</font> and <font color='green'>calc_convexity</font> is return of the second derivative from <font color='green'>bond_pv</font>:</p>
+<ul class="simple">
+<li><p><strong>bond_pay_data</strong> (<a class="reference external" href="https://patrickjhess.github.io/Vol-3-Chap-2-Chap-3/Bond_Pay_Dates.html#bond-payment-dates">Chapter Three</a>): Returns the payment dates and amounts.</p>
+<ul>
+<li><p><a class="reference external" href="https://patrickjhess.github.io/Imported-Functions/bond_pay_data.html#bond-pay-data-helper-function">View Details</a></p></li>
+</ul>
+</li>
+<li><p><strong>bond_pv</strong> (<a class="reference external" href="https://patrickjhess.github.io/Vol-3-Chap-6/Calculating_Yields_To_Maturity.html#demonstrating-bond-pv">Chapter Six</a>): Returns the present value of a bond.</p>
+<ul>
+<li><p><a class="reference external" href="https://patrickjhess.github.io/Imported-Functions/bond_pv.html">View Details</a></p></li>
+</ul>
+</li>
+<li><p><strong>calc_duration</strong>  (<a class="reference external" href="https://patrickjhess.github.io/Vol-3-Chap-7/Measuring_Interest_Rate_Risk_With_Duration.html#application-calculate-duration-with-different-maturities-coupons-and-rates">Chapter Seven</a>) Calculates duration</p>
+<ul>
+<li><p><a class="reference external" href="https://patrickjhess.github.io/Imported-Functions/calc_duration.html">View Details</a></p></li>
+</ul>
+</li>
+<li><p><strong>calc_convexity</strong> (This chapter): Calculates convexity</p>
+<ul>
+<li><p><a class="reference external" href="https://patrickjhess.github.io/Imported-Functions/calc_convexity.html#">View Details</a></p></li>
+</ul>
+</li>
+<li><p><strong>one_y_axis</strong> (<a class="reference external" href="https://patrickjhess.github.io/Vol-3-Chap-1/Calculating_And_Graphing_The_Term_Structure_Of_Interest_Rates.html#graphing-the-spot-and-forward-rates-for-september-30-2025">Chapter One</a>): Plots multiple series against a single x axis.</p>
+<ul>
+<li><p><a class="reference external" href="https://patrickjhess.github.io/Imported-Functions/one_y_axis.html">View Details</a></p></li>
+</ul>
+</li>
+</ul>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># calculate present value, ignore first derivative and assign second</span>
+<span class="n">value</span><span class="p">,</span><span class="n">_</span><span class="p">,</span><span class="n">derivative_second</span><span class="o">=</span><span class="n">bond_pv</span><span class="p">(</span><span class="n">rates</span><span class="o">=</span><span class="n">rates</span><span class="p">,</span><span class="n">data_dict</span><span class="o">=</span><span class="n">data_dict</span><span class="p">)</span>
+
+<span class="c1"># calculate convexity and return value</span>
+<span class="n">convexity</span><span class="o">=</span><span class="n">derivative_second</span><span class="o">/</span><span class="n">value</span>
+<span class="k">return</span> <span class="n">convexity</span>
+</pre></div>
+</div>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">basic_concepts_fixed_income</span><span class="w"> </span><span class="kn">import</span><span class="p">(</span><span class="n">bond_pay_data</span><span class="p">,</span>
+                                        <span class="n">bond_pv</span><span class="p">,</span>
+                                        <span class="n">calc_duration</span><span class="p">,</span>
+                                        <span class="n">calc_convexity</span><span class="p">,</span>
+                                        <span class="n">one_y_axis</span><span class="p">)</span>
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the URL of the Python module to be downloaded from Dropbox.</span>
+<span class="c1"># The &#39;dl=1&#39; parameter in the URL forces a direct download of the file content.</span>
+<span class="n">url</span><span class="o">=</span> <span class="s1">&#39;https://www.dropbox.com/scl/fi/4y5hjxlfphh1ngvbgo77q/</span><span class="se">\</span>
+<span class="s1">module_-basic_concepts_fixed_income.py?rlkey=6oxi7mgka42veaat79hcv8boz&amp;st=stuou11h&amp;dl=1&#39;</span>
+<span class="n">module_name</span><span class="o">=</span><span class="s1">&#39;basic_concepts_fixed_income&#39;</span>
+<span class="c1"># Send an HTTP GET request to the URL and store the server&#39;s response.</span>
+<span class="k">try</span><span class="p">:</span>
+  <span class="n">response</span><span class="o">=</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+  <span class="c1"># Raise an exception for bad status codes (like 404 Not Found)</span>
+  <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+  <span class="n">module</span><span class="o">=</span> <span class="n">ModuleType</span><span class="p">(</span><span class="n">module_name</span><span class="p">)</span>
+  <span class="c1">#Code contained in response.text executed</span>
+  <span class="n">exec</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">module</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+  <span class="c1"># Module added to sys</span>
+  <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="n">module_name</span><span class="p">]</span><span class="o">=</span><span class="n">module</span>
+<span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;❌ Error: Could not fetch module from URL. </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;❌ Error: Failed to execute or import the module. </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1"># Open the local file in &quot;write binary&quot; (&#39;wb&#39;) mode and save the downloaded content.</span>
+<span class="c1"># Using a &#39;with&#39; statement ensures the file is properly closed after writing.</span>
+
+<span class="c1"># Now that &#39;basic_concepts_fixed_income&#39; exists in the notebook, import the specific functions</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">basic_concepts_fixed_income</span><span class="w"> </span><span class="kn">import</span><span class="p">(</span><span class="n">bond_pay_data</span><span class="p">,</span>
+                                        <span class="n">bond_pv</span><span class="p">,</span>
+                                        <span class="n">calc_duration</span><span class="p">,</span>
+                                        <span class="n">calc_convexity</span><span class="p">,</span>
+                                        <span class="n">one_y_axis</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="demonstrating-the-effect-of-convexity-with-two-bonds">
+<h2>Demonstrating the effect of convexity with two bonds<a class="headerlink" href="#demonstrating-the-effect-of-convexity-with-two-bonds" title="Link to this heading">#</a></h2>
+<p>A zero-duration-long-convexity trade is neutral to the direction of interest rate changes, yet it profits from any fluctuation in interest rates. The convexity trade is illustrated using an eight-year bond with a 2.758% coupon and a thirty-year bond with a 2.25% coupon. The strategy takes a long position in the higher convexity thirty-year bond and a short position in the lower convexity eight-year bond. The zero-duration position is unaffected by directional movements in the yield to maturity.</p>
+<div>
+<center>
+<br>
+<table >
+  <tr>
+    <th>Maturity </th>
+    <th>Coupon </th>
+    <th>Yield To Maturity </th>
+  </tr>
+    <td>Eight Years</td>
+    <td>2.758</td>
+    <td>4.3%</td>
+    </tr>
+    <td>Thirty Years</td>
+    <td>2.25</td>
+    <td>4.3%</td>
+  </tr>
+</table>
+<br>
+</center>
+</div>
+<p>The duration, convexity, and value of the bonds are calculated with the functions <font color='green'>calc_duration, calc_convexity()</font> and <font color='green'>bond_pv()</font>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">dateutil.relativedelta</span><span class="w"> </span><span class="kn">import</span> <span class="n">relativedelta</span>
+<span class="c1"># define bond attributes coupons, maturities and yield to maturity</span>
+<span class="n">coupons</span><span class="o">=</span><span class="p">[</span><span class="mf">2.758</span><span class="p">,</span><span class="mf">2.25</span><span class="p">]</span>
+<span class="n">maturities</span><span class="o">=</span><span class="p">[</span><span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">+</span><span class="n">relativedelta</span><span class="p">(</span><span class="n">years</span><span class="o">=</span><span class="mi">8</span><span class="p">),</span>
+            <span class="n">date</span><span class="o">.</span><span class="n">today</span><span class="p">()</span><span class="o">+</span><span class="n">relativedelta</span><span class="p">(</span><span class="n">years</span><span class="o">=</span><span class="mi">30</span><span class="p">)]</span>
+<span class="n">ytm</span><span class="o">=</span><span class="mf">0.043</span>
+
+<span class="c1"># populate the lists durations and convexities</span>
+<span class="n">durations</span><span class="o">=</span><span class="p">[</span><span class="n">calc_duration</span><span class="p">(</span><span class="n">maturity</span><span class="p">,</span><span class="n">coupon</span><span class="p">,</span><span class="n">rates</span><span class="o">=</span><span class="n">ytm</span><span class="p">)</span>
+                          <span class="k">for</span> <span class="n">maturity</span><span class="p">,</span><span class="n">coupon</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">maturities</span><span class="p">,</span><span class="n">coupons</span><span class="p">)]</span>
+<span class="n">convexities</span><span class="o">=</span><span class="p">[</span><span class="n">calc_convexity</span><span class="p">(</span><span class="n">maturity</span><span class="p">,</span><span class="n">coupon</span><span class="p">,</span><span class="n">ytm</span><span class="p">)</span>
+                          <span class="k">for</span> <span class="n">maturity</span><span class="p">,</span><span class="n">coupon</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">maturities</span><span class="p">,</span><span class="n">coupons</span><span class="p">)]</span>
+
+<span class="c1"># value the bonds using bond_pay_data for payment dates and amounts</span>
+<span class="n">pay_data_list</span><span class="o">=</span><span class="p">[{</span><span class="s1">&#39;pay_data&#39;</span><span class="p">:</span><span class="n">bond_pay_data</span><span class="p">(</span><span class="n">maturity</span><span class="p">,</span><span class="n">coupon</span><span class="p">)}</span>
+               <span class="k">for</span> <span class="n">maturity</span><span class="p">,</span><span class="n">coupon</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">maturities</span><span class="p">,</span><span class="n">coupons</span><span class="p">)]</span>
+<span class="n">bond_values</span><span class="o">=</span><span class="p">[</span><span class="n">bond_pv</span><span class="p">(</span><span class="n">ytm</span><span class="p">,</span><span class="n">data</span><span class="p">)[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">data</span> <span class="ow">in</span> <span class="n">pay_data_list</span><span class="p">]</span>
+
+<span class="c1"># save calculations in DataFrame</span>
+<span class="n">df_duration_convexity_value</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Duration&#39;</span><span class="p">:</span><span class="n">durations</span><span class="p">,</span>
+                                          <span class="s1">&#39;Convexity&#39;</span><span class="p">:</span><span class="n">convexities</span><span class="p">,</span>
+                                         <span class="s1">&#39;Bond Value&#39;</span><span class="p">:</span><span class="n">bond_values</span><span class="p">},</span>
+                                          <span class="n">index</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;8 Year 2.75&#39;</span><span class="p">,</span><span class="s1">&#39;30 Year 2.25&#39;</span><span class="p">])</span>
+<span class="n">df_duration_convexity_value</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Duration</th>
+      <th>Convexity</th>
+      <th>Bond Value</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>8 Year 2.75</th>
+      <td>7.180785</td>
+      <td>0.286034</td>
+      <td>89.350869</td>
+    </tr>
+    <tr>
+      <th>30 Year 2.25</th>
+      <td>19.686066</td>
+      <td>0.291951</td>
+      <td>65.032288</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="a-zero-duration-long-convexity-trade">
+<h2>A zero-duration long-convexity trade<a class="headerlink" href="#a-zero-duration-long-convexity-trade" title="Link to this heading">#</a></h2>
+<p>The duration of the convexity trade is zero making it immune from directional changes in interest rates. The duration of the 30-year bond is 2.741 times that of the 8-year (<span class="math notranslate nohighlight">\(\frac{19.683}{7.180})\)</span>.  To hedge directional changes in interest rates, the trade is short 2.741 dollars of the eight-year bond for every dollar invested in the 30-year.  The value of the 30-year bond is 72.8% (<span class="math notranslate nohighlight">\(\frac{65.039}{89.354})\)</span> of the 8-year and the hedge adjusts the ratio of durations by that amount.</p>
+<div class="math notranslate nohighlight">
+\[Hedge\ Ratio = \frac{19.6849}{7.17854}\times\frac{65.039}{89.354}= 1.995\]</div>
+<br>
+<p><strong>Mechanics of shorting a bond</strong></p>
+<p>The repo market can be used to short a bond.  In a ‘repo’ transaction, the bond owner sells the bond with an agreement to repurchase it at a fixed price and date. Conversely, the party buying the bond and agreeing to resell it is said to have ‘reverse repoed’ the bond. A short position is established when the party reversing the repo sells the bond in the market and repurchases the bond at the expiration of the repo agreement.</p>
+<p>Upon the expiration of the ‘repo’ agreement, the purchased bond is sold back at the agreed-upon price and date. In our example, selling 1.995 eight-year bonds resulted in an inflow of \<span class="math notranslate nohighlight">\(178.30; buying one thirty-year bond is an outflow of \)</span>65.04.  The  net inflow is \$113.26. The net investment of the trade is the cost of purchasing 1.995 eight-year bonds less the net inflow:</p>
+<div class="math notranslate nohighlight">
+\[ \$65.04 = \$178.30 -\$113.26\]</div>
+</section>
+<section id="calculate-the-gross-profits-of-the-convexity-trade">
+<h2>Calculate the gross profits of the convexity trade<a class="headerlink" href="#calculate-the-gross-profits-of-the-convexity-trade" title="Link to this heading">#</a></h2>
+<p>The ratios of durations and bond values are calculated by dividing the second row of the <font color='green'>df_duration_convexity_value</font> DataFrame by the first and ignoring the ratio of convexities.  The hedge ratio is calculated as the product of these two ratios.  The NumPy function <font color='green'>arange()</font> is used to create the array <font color='green'>delta_ytm</font> between -0.01 and 0.01 at 0.001 increments- in total twenty-one elements. The payment dates for both bonds are calculated with <font color='green'>bond_pay_data()</font>.  Both bond values are calculated for the new yields calculated as the sum of the <font color='green'>delta_ytm</font> array and the scalar <font color='green'>ytm</font>. The values of the bonds at the original 4.3% yield to maturity are assigned to <font color='green'>ytm_8</font> and <font color='green'>ytm_30</font>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Calculate the ratio of durations and values by dividing the 30 Year row by the 8 Year Row</span>
+<span class="c1">#The underscore serves to ignore the ratio of convexities</span>
+<span class="n">duration_ratio</span><span class="p">,</span><span class="n">__</span><span class="p">,</span><span class="n">value_ratio</span><span class="o">=</span><span class="n">df_duration_convexity_value</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span><span class="o">/</span><span class="n">df_duration_convexity_value</span><span class="o">.</span><span class="n">iloc</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1">#Calculate the hedge ratio</span>
+<span class="n">hedge_ratio</span><span class="o">=</span><span class="n">duration_ratio</span><span class="o">*</span><span class="n">value_ratio</span>
+
+<span class="c1">#Calculate 21 changes in yield to maturity + or - 0.1% increments brom minus to plus 1%</span>
+<span class="n">delta_ytm</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">arange</span><span class="p">(</span><span class="o">-</span><span class="mf">0.01</span><span class="p">,</span><span class="mf">0.0101</span><span class="p">,</span><span class="mf">0.001</span><span class="p">)</span>
+
+<span class="c1">#Get pay data for both bonds</span>
+<span class="n">pay_data_8</span><span class="p">,</span><span class="n">pay_data_30</span><span class="o">=</span><span class="p">(</span><span class="n">bond_pay_data</span><span class="p">(</span><span class="n">maturity</span><span class="p">,</span><span class="n">coupon</span><span class="p">)</span> <span class="k">for</span> <span class="n">maturity</span><span class="p">,</span><span class="n">coupon</span>
+                                       <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">maturities</span><span class="p">,</span><span class="n">coupons</span><span class="p">))</span>
+
+<span class="c1">#Calculate value of bonds for incremented yields to maturity</span>
+<span class="n">value_8</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">bond_pv</span><span class="p">(</span><span class="n">new</span><span class="p">,{</span><span class="s1">&#39;pay_data&#39;</span><span class="p">:</span><span class="n">pay_data_8</span><span class="p">})[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">new</span> <span class="ow">in</span> <span class="n">delta_ytm</span><span class="o">+</span><span class="n">ytm</span><span class="p">])</span>
+<span class="n">value_30</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">bond_pv</span><span class="p">(</span><span class="n">new</span><span class="p">,{</span><span class="s1">&#39;pay_data&#39;</span><span class="p">:</span><span class="n">pay_data_30</span><span class="p">})[</span><span class="mi">0</span><span class="p">]</span> <span class="k">for</span> <span class="n">new</span> <span class="ow">in</span> <span class="n">delta_ytm</span><span class="o">+</span><span class="n">ytm</span><span class="p">])</span>
+
+<span class="c1">#4.3% ytm value of bonds</span>
+<span class="n">ytm_8</span><span class="p">,</span><span class="n">ytm_30</span><span class="o">=</span><span class="n">df_duration_convexity_value</span><span class="p">[</span><span class="s1">&#39;Bond Value&#39;</span><span class="p">]</span>
+
+<span class="c1"># P&amp;L = (P&amp;L of long one 30-year bond) + (P&amp;L of short 1.996 8-year bonds)</span>
+<span class="n">convexity_gross_profit</span><span class="o">=</span><span class="n">value_30</span><span class="o">-</span><span class="n">ytm_30</span><span class="o">-</span><span class="n">hedge_ratio</span><span class="o">*</span><span class="p">(</span><span class="n">value_8</span><span class="o">-</span><span class="n">ytm_8</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="graphing-the-gross-profits-of-the-convexity-trade">
+<h2>Graphing the gross profits of the convexity trade<a class="headerlink" href="#graphing-the-gross-profits-of-the-convexity-trade" title="Link to this heading">#</a></h2>
+<p>The gross profit of the trade is plotted with the function <font color='green'>one_y_axis()</font>.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1">#Assign x axis and data to be plotted</span>
+<span class="n">xaxis</span><span class="o">=</span><span class="n">delta_ytm</span><span class="o">*</span><span class="mi">100</span>
+<span class="n">data</span><span class="o">=</span><span class="p">[</span><span class="n">convexity_gross_profit</span><span class="p">]</span>
+<span class="n">save_config</span><span class="o">=</span><span class="p">{}</span>
+<span class="c1"># Attempt to extract the plot title from the file name.</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">splitext</span><span class="p">(</span><span class="n">save_config</span><span class="p">[</span><span class="s1">&#39;File&#39;</span><span class="p">])[</span><span class="mi">0</span><span class="p">]</span>
+<span class="c1">#&#39;File Name&#39; key not found or string is too short), set a default title.</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="n">title</span> <span class="o">=</span> <span class="s1">&#39;Parallel Change In Yields To Maturity Par Value $100&#39;</span>
+
+<span class="c1">#Set the appearance of the graph</span>
+<span class="n">series</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Long 30 2.25 and Short 8 2.75&#39;</span><span class="p">]</span>
+<span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Bond Values&#39;</span>
+<span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Percentage Changes In Yield To Maturity&#39;</span>
+<span class="n">color</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">]</span>
+<span class="n">lower</span><span class="o">=</span><span class="mi">0</span>
+<span class="n">upper</span><span class="o">=</span><span class="mf">2.0</span>
+<span class="n">markers</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;.&#39;</span><span class="p">]</span>
+<span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="n">lower</span><span class="p">,</span><span class="n">upper</span><span class="p">]</span>
+<span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+
+<span class="c1"># This function generates and possibly saves a plot.</span>
+<span class="n">one_y_axis</span><span class="p">(</span><span class="n">xaxis</span><span class="p">,</span><span class="n">data</span><span class="p">,</span><span class="n">title</span><span class="p">,</span><span class="n">series</span><span class="p">,</span><span class="n">xlabel</span><span class="p">,</span><span class="n">ylabel</span><span class="p">,</span><span class="n">markers</span><span class="p">,</span><span class="n">size</span><span class="p">,</span><span class="n">ylim</span><span class="p">,</span>
+          <span class="n">save_config</span><span class="o">=</span><span class="n">save_config</span><span class="p">,</span><span class="n">colors</span><span class="o">=</span><span class="n">color</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/bc19e4b86ca3868725736d648d5616826bbcd88eee41f3387f1c744ba5d3ee3e.png" src="_images/bc19e4b86ca3868725736d648d5616826bbcd88eee41f3387f1c744ba5d3ee3e.png" />
+</div>
+</div>
+<p>For parallel shifts of the yield curve the zero-duration long-convexity trade produces gross profits for increase and decreases of the yields to maturity. However, if our assuption that market expectations of the term structure are limited to only parallel shifts, the expected gross profits will not be accurate. The notebook <em>Changes in Par Yields Between 1993 and 2025</em> presents evidence that a simple parallel shift in rates is unlikely to be a likely scenario.</p>
+</section>
+<section id="application-calculate-and-graph-the-gross-profits-of-the-convexity-trade-using-a-30-year-and-five-year-bond">
+<h2><font color='green'>Application: Calculate and graph the gross profits of the convexity trade using a 30-year and five-year bond.</font><a class="headerlink" href="#application-calculate-and-graph-the-gross-profits-of-the-convexity-trade-using-a-30-year-and-five-year-bond" title="Link to this heading">#</a></h2>
+<br>
+<div>
+<center>
+<br>
+<table >
+  <tr>
+    <th>Maturity </th>
+    <th>Coupon </th>
+    <th>Yield To Maturity </th>
+  </tr>
+    <td>Five Years</td>
+    <td>5.0</td>
+    <td>4.3%</td>
+    </tr>
+    <td>Thirty Years</td>
+    <td>2.25</td>
+    <td>4.3%</td>
+  </tr>
+</table>
+<br>
+</center>
+<p>see <a class="reference external" href="https://colab.research.google.com/drive/1WL30MXvTfn3tTNQaaas2bmHn3G5E3lK4#scrollTo=RMp8ZpxKRdl4">Chapter Eight Hints: Graph gross profits of convexity trade</a>, and check the <a class="reference external" href="https://colab.research.google.com/drive/1jULdrPyul6Xs5Zrm4ysXezNNuJG7K6l6#scrollTo=RMp8ZpxKRdl4">expected results here</a>.</p>
+</div></section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "patrickjhess/Vol-3-Chap-8",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Chapter_Eight_Highlights.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title"><em><strong>Convexity And Interest Rate Risk</strong></em></p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Changes_In_Par_Yields_Between_1993_And_2025.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Volatility and Corrleation of Par Yields</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-the-notebook">Preparing the notebook</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-libraries-and-functions">Importing libraries and functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-function-calc-convexity">The function <font color="green">calc_convexity</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-custom-module-and-importing-functions">Adding a custom module and importing functions</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#demonstrating-the-effect-of-convexity-with-two-bonds">Demonstrating the effect of convexity with two bonds</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#a-zero-duration-long-convexity-trade">A zero-duration long-convexity trade</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-the-gross-profits-of-the-convexity-trade">Calculate the gross profits of the convexity trade</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graphing-the-gross-profits-of-the-convexity-trade">Graphing the gross profits of the convexity trade</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#application-calculate-and-graph-the-gross-profits-of-the-convexity-trade-using-a-30-year-and-five-year-bond"><font color="green">Application: Calculate and graph the gross profits of the convexity trade using a 30-year and five-year bond.</font></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Financial Python
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Arbitrage Partners.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

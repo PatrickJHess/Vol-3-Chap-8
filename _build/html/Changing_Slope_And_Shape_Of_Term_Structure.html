@@ -1,0 +1,2035 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Changing Slope and Shape of Term Structure &#8212; Basic Concepts of Fixed Income: Convexity And Interest Risk Hundred Bonds</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=03e43079" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+    <link rel="stylesheet" type="text/css" href="_static/custom.css?v=b47fed4d" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/open_new_tab.js?v=9fade34f"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Changing_Slope_And_Shape_Of_Term_Structure';</script>
+    <script src="_static/open_new_tab.js?v=9fade34f"></script>
+    <link rel="canonical" href="https://patrickjhess.github.io/Vol-3-Chap-8/Changing_Slope_And_Shape_Of_Term_Structure.html" />
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Summarizing Convexity and Interest Rate Risk" href="Chapter_Eight_Summary.html" />
+    <link rel="prev" title="Volatility and Corrleation of Par Yields" href="Changes_In_Par_Yields_Between_1993_And_2025.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="intro.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Basic Concepts of Fixed Income: Convexity And Interest Risk Hundred Bonds</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="intro.html">
+                    Financial Python
+                </a>
+            </li>
+        </ul>
+        <p aria-level="2" class="caption" role="heading"><span class="caption-text">Getting Started</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Interacting%20With%20Jupyter%20Books.html">Working with Jupyter Books</a></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Basic Concepts of Fixed Income: Chapter Eight</span></p>
+<ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active has-children"><a class="reference internal" href="Chapter_Eight_Highlights.html"><em><strong>Convexity And Interest Rate Risk</strong></em></a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Illustrating_The_Effects_With_Parallel_Shifts_In_Yields_To_Maturity.html">Convexity And Parallel Shifts in Yields to Maturity</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Changes_In_Par_Yields_Between_1993_And_2025.html">Volatility and Corrleation of Par Yields</a></li>
+<li class="toctree-l2 current active"><a class="current reference internal" href="#">Changing Slope and Shape of Term Structure</a></li>
+<li class="toctree-l2"><a class="reference internal" href="Chapter_Eight_Summary.html"><em><strong>Summarizing Convexity and Interest Rate Risk</strong></em></a></li>
+<li class="toctree-l2"><a class="reference internal" href="imported_functions_Eight.html"><em><strong>Functions Imported by Chapter Eight.</strong></em></a></li>
+</ul><details open="open"><summary><span class="toctree-toggle" role="presentation"><i class="fa-solid fa-chevron-down"></i></span></summary>
+</details></li>
+</ul>
+<p aria-level="2" class="caption" role="heading"><span class="caption-text">Hub &amp; Other Chapters Of Basic Concepts Of Fixed Income</span></p>
+<ul class="nav bd-sidenav">
+<li class="toctree-l1"><a class="reference external" href="https://patrickjhess.github.io/Volume-Three-Hub/">Hub For Basic Concepts Of Fixed Income</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://patrickjhess.github.io/Vol-3-Chap-1/">Chapter One: Basic Bond Concepts and the Term Structure of Interest Rates</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://patrickjhess.github.io/Vol-3-Chap-2-Chap-3/">Chapters Two and Three: Accrued Interest and Bond Pay Data</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://patrickjhess.github.io/Vol-3-Chap-4/">Chapters Four: Bootstrapping The Term Structure With Coupon Bonds</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://patrickjhess.github.io/Vol-3-Chap-5/">Chapter Five: Yield To Maturity</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://patrickjhess.github.io/Vol-3-Chap-6/">Chapter Six: Yield To Maturity</a></li>
+<li class="toctree-l1"><a class="reference external" href="https://patrickjhess.github.io/Vol-3-Chap-7/">Chapter Seven: Measuring Interest Risk With Duration</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-launch-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Launch interactive content">
+    <i class="fas fa-rocket"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://mybinder.org/v2/gh/PatrickJHess/Vol-3-Chap-8/master?urlpath=tree/Changing_Slope_And_Shape_Of_Term_Structure.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Binder"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Binder logo" src="_static/images/logo_binder.svg">
+  </span>
+<span class="btn__text-container">Binder</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://colab.research.google.com/github/PatrickJHess/Vol-3-Chap-8/blob/master/Changing_Slope_And_Shape_Of_Term_Structure.ipynb" target="_blank"
+   class="btn btn-sm dropdown-item"
+   title="Launch on Colab"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  
+    <img alt="Colab logo" src="_static/images/logo_colab.png">
+  </span>
+<span class="btn__text-container">Colab</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="initThebeSBT()"
+  class="btn btn-sm btn-launch-thebe dropdown-item"
+  title="Launch Thebe"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-play"></i>
+  </span>
+<span class="btn__text-container">Live Code</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+<a href="https://github.com/PatrickJHess/Vol-3-Chap-8/issues/new?title=Issue%20on%20page%20%2FChanging_Slope_And_Shape_Of_Term_Structure.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button"
+   title="Open an issue"
+   data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+
+</a>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Changing_Slope_And_Shape_Of_Term_Structure.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Changing Slope and Shape of Term Structure</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-the-notebook">Preparing the notebook</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-libraries-modules-and-functions">Importing libraries, modules, and functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-custom-module-and-importing-functions">Adding a custom module and importing functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-par-yield-data-to-demonstrate-convexity">Using par yield data to demonstrate convexity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-dataframe-of-par-yields-maturities-six-or-more-months-for-february-3-rd-2026">Create a DataFrame of par yields maturities six or more months for February 3<span class="math notranslate nohighlight">\(^{rd}\)</span> 2026.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-the-convexity-and-duration-with-par-yields">Calculate the convexity and duration with par yields</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-relation-between-duration-and-convexity">The relation between duration and convexity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-hypothetical-long-convexity-zero-duration-trades">Two hypothetical long convexity zero duration trades</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-preliminary-data-for-ten-twenty-and-thirty-year-bonds-selling-for-par-yield">Get preliminary data for ten, twenty, and thirty year bonds selling for par yield.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-bond-values-for-the-ten-twenty-and-thirty-year-bonds">Get bond values for the ten, twenty, and thirty year bonds.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-the-simulated-convexity-trade-returns">Calculating the simulated convexity trade returns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-changes-in-yields-to-maturity">Parallel changes in yields to maturity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-parallel-changes-in-yields-to-maturity">Non-parallel changes in yields to maturity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-changes-are-used-in-the-parallel-and-non-parallel-simulations">Parallel changes are used in the parallel and non-parallel simulations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-changes-in-value-of-the-three-bonds">Simulate changes in value of the three bonds</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-calc-convexity-trade">Function <font color="green">calc_convexity_trade</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-results-for-parallel-shift-in-yields-to-maturity">Calculate results for parallel shift in yields to maturity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-results-for-non-parallel-shift-in-yields-to-maturity">Calculate results for non-parallel shift in yields to maturity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combine-both-convexity-trades-as-a-single-dataframe">Combine both convexity trades as a single DataFrame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concatenate-the-convexity-trade-statistics-for-the-parallel-change-in-yields-to-maturity">Concatenate the convexity trade statistics for the parallel change in yields to maturity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concatenate-the-convexity-trade-statistics-for-the-non-parallel-change-in-yields-to-maturity">Concatenate the convexity trade statistics for the non-parallel change in yields to maturity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-comparison-of-results">The comparison of results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-results-with-one-y-axis-function">Graph results with one_y_axis function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-the-results">Plotting the results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-the-convexity-trades">Graph the convexity trades</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-the-profits-from-the-parallel-changes">Graph the profits from the parallel changes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summarizing"><em><strong>Summarizing</strong></em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-graph-gross-profits-for-non-parallel-convexity-trades-with-scale-factor-0-05"><font color="green">Exercise: Graph gross profits for non-parallel convexity trades with scale factor = 0.05</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#take-a-deeper-dive-with-gemini"><font color="green">Take a deeper dive with Gemini</font></a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <section class="tex2jax_ignore mathjax_ignore" id="changing-slope-and-shape-of-term-structure">
+<h1>Changing Slope and Shape of Term Structure<a class="headerlink" href="#changing-slope-and-shape-of-term-structure" title="Link to this heading">#</a></h1>
+<p>This analysis builds upon previous work presented in two notebooks of this chapter:</p>
+<ol class="arabic simple">
+<li><p><em>Illustrating the Effects with Parallel Shifts in Yields to Maturity</em>  exploring the effect of convexity on bond prices assuming identical or parallel changes in interest rates</p></li>
+<li><p><em>Changes in Par Yields Between 1993 and 2025</em> demonstrates that parallel shifts in interest rates are uncommon.</p></li>
+</ol>
+<p>This notebook extends the investigation by examining two convexity-focused trades. The trades are demonstrated using U.S. Treasury par yield data.<span class="math notranslate nohighlight">\(^{1}\)</span> In one case, parallel changes are assumed; in the other,  non-parallel changes.</p>
+<p>The keys of the trade are a long convexity position and zero duration. The results for parallel shifts are perfectly predictable. Non-parallel changes alter the slope and shape of the term structure making the results unpredictable. The point is demonstrated by simulating parallel and non-parallel changes in yields to maturity.</p>
+<p>The simulations are conducted with a new module from the <strong>scipy</strong> library—specifically, the <strong>stats</strong> module. The analysis considers three distinct levels of uncertainty for both the parallel and non-parallel yield change scenarios.  All simulations follow the <em>Beta</em> distributions that allow for variations in the shape of the probability density function and the range of outcomes. Our analysis assumes that:</p>
+<ul class="simple">
+<li><p>The distributions are centered around zero.</p></li>
+<li><p>The least uncertainty is generated from distributions highly peaked around zero, and the greatest uncertainty results from distributions that are flat over the range of outcomes.</p></li>
+</ul>
+<p>The distributions are meant to illustrate how changes in the shape and slope of the term structures result in fuzzy predictions based on duration and convexity.  The message isn’t that bond math should be ignored; rather, its use requires judgement.</p>
+<hr class="docutils" />
+<p><span class="math notranslate nohighlight">\(^{1}\)</span>Prior notebooks have used FRED for par yield data. The change to U.S. Treasury data is intended to illustrate an alternative. The data are identical.</p>
+<section id="preparing-the-notebook">
+<h2>Preparing the notebook<a class="headerlink" href="#preparing-the-notebook" title="Link to this heading">#</a></h2>
+<section id="importing-libraries-modules-and-functions">
+<h3>Importing libraries, modules, and functions<a class="headerlink" href="#importing-libraries-modules-and-functions" title="Link to this heading">#</a></h3>
+<p>As in earlier chapters of the volume, modules that are included in the standard Python library are imported. When necessary, other modules or libraries are installed before they are imported.<span class="math notranslate nohighlight">\(^{2}\)</span>  Because pandas_data_reader and scipy are not part of the Pandas library, they are imported and when necessary installed.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span>import sys
+import requests
+from types import ModuleType
+from datetime import datetime, date
+
+try:
+    import numpy as np
+except:
+    !pip install numpy
+    import numpy as np
+
+try:
+    import pandas as pd
+except:
+    !pip install pandas
+    import pandas as pd
+from pandas import describe_option
+
+try:
+    from scipy.stats import beta
+except:
+    !pip install scipy
+    from scipy.stats import beta    
+</pre></div>
+</div>
+<hr class="docutils" />
+<p><span class="math notranslate nohighlight">\(^{2}\)</span>For more information on <font color='green'>try</font> and <font color='green'>except</font> statements, see “<a href='https://patrickjhess.github.io/Introduction-To-Python-For-Financial-Python/Control_Statements.html#the-try-and-except'>Control Statements</a>.”</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="kn">import</span><span class="w"> </span><span class="nn">os</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">sys</span>
+<span class="kn">import</span><span class="w"> </span><span class="nn">requests</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">types</span><span class="w"> </span><span class="kn">import</span> <span class="n">ModuleType</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">datetime</span><span class="w"> </span><span class="kn">import</span> <span class="n">datetime</span><span class="p">,</span> <span class="n">date</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">dateutil.relativedelta</span><span class="w"> </span><span class="kn">import</span> <span class="n">relativedelta</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>numpy
+    <span class="kn">import</span><span class="w"> </span><span class="nn">numpy</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">np</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>pandas
+    <span class="kn">import</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="k">as</span><span class="w"> </span><span class="nn">pd</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">pandas</span><span class="w"> </span><span class="kn">import</span> <span class="n">describe_option</span>
+
+<span class="c1"># the new module from the scipy library</span>
+<span class="k">try</span><span class="p">:</span>
+    <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">beta</span>
+<span class="k">except</span><span class="p">:</span>
+    <span class="o">!</span>pip<span class="w"> </span>install<span class="w"> </span>scipy
+    <span class="kn">from</span><span class="w"> </span><span class="nn">scipy.stats</span><span class="w"> </span><span class="kn">import</span> <span class="n">beta</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="adding-a-custom-module-and-importing-functions">
+<h3>Adding a custom module and importing functions<a class="headerlink" href="#adding-a-custom-module-and-importing-functions" title="Link to this heading">#</a></h3>
+<p>The <font color='green'>module_basic_concepts_fixed_income</font> custom module contains functions utilized in the notebooks within the “Basic Concepts of Fixed Income” volume. This module is accessed from Dropbox using <font color='green'>requests</font>.
+You have the flexibility to choose the module name; in this instance,  <font color='green'>basic_concepts_fixed_income</font> is assigned to <font color='green'>module_name</font>. The module is instantiated with <font color='green'>ModuleType</font> using the chosen <font color='green'>module_name</font>. Once created, the module becomes accessible in the notebook’s memory, though it is not added to a drive.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">url</span><span class="o">=</span> <span class="s1">&#39;https://www.dropbox.com/scl/fi/4y5hjxlfphh1ngvbgo77q/</span><span class="se">\</span>
+<span class="s1">module_-basic_concepts_fixed_income.py?rlkey=6oxi7mgka42veaat79hcv8boz&amp;st=stuou11h&amp;dl=1&#39;</span>
+<span class="n">module_name</span><span class="o">=</span><span class="s1">&#39;module_basic_concepts_fixed_income&#39;</span>
+<span class="k">try</span><span class="p">:</span>
+  <span class="n">response</span><span class="o">=</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+  <span class="n">module</span><span class="o">=</span><span class="n">ModuleType</span><span class="p">(</span><span class="n">module_name</span><span class="p">)</span>
+
+</pre></div>
+</div>
+<p>The <font color='green'>exec</font> function executes the Python code returned by <font color='green'>request.get</font>. It assigns functions and variables to <font color='green'>sys.module[module_name]</font>, making the module available to the notebook.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="n">exec</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">,</span><span class="n">module</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+<span class="n">sys</span><span class="o">.</span><span class="n">module</span><span class="p">[</span><span class="n">module_name</span><span class="p">]</span><span class="o">=</span><span class="n">module</span>
+</pre></div>
+</div>
+<p>Five functions are imported from the module:</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="kn">from</span><span class="w"> </span><span class="nn">basic_concepts_fixed_income</span><span class="w"> </span><span class="kn">import</span><span class="p">(</span><span class="n">bond_pay_data</span><span class="p">,</span>
+                                        <span class="n">bond_pv</span><span class="p">,</span>
+                                        <span class="n">calc_duration</span><span class="p">,</span>
+                                        <span class="n">calc_convexity</span><span class="p">,</span>
+                                        <span class="n">one_y_axis</span><span class="p">)</span>
+</pre></div>
+</div>
+<ul class="simple">
+<li><p><strong>bond_pay_data</strong> (<a class="reference external" href="https://patrickjhess.github.io/Vol-3-Chap-2-Chap-3/Bond_Pay_Dates.html#bond-payment-dates">Chapter Three</a>): Returns the payment dates and amounts.</p>
+<ul>
+<li><p><a class="reference external" href="https://patrickjhess.github.io/Imported-Functions/bond_pay_data.html#bond-pay-data-helper-function">View Details</a></p></li>
+</ul>
+</li>
+<li><p><strong>bond_pv</strong> (<a class="reference external" href="https://patrickjhess.github.io/Vol-3-Chap-6/Calculating_Yields_To_Maturity.html#demonstrating-bond-pv">Chapter Six</a>): Returns the present value of a bond.</p>
+<ul>
+<li><p><a class="reference external" href="https://patrickjhess.github.io/Imported-Functions/bond_pv.html">View Details</a></p></li>
+</ul>
+</li>
+<li><p><strong>calc_duration</strong>  (<a class="reference external" href="https://patrickjhess.github.io/Vol-3-Chap-7/Measuring_Interest_Rate_Risk_With_Duration.html#demonstrating-the-calc-duration-with-304-fidelity-bonds">Chapter Seven</a> Calculates duration</p>
+<ul>
+<li><p><a class="reference external" href="https://patrickjhess.github.io/Imported-Functions/calc_duration.html">View Details</a></p></li>
+</ul>
+</li>
+<li><p><strong>calc_convexity</strong> (Chapter Eight): Calculates convexity</p>
+<ul>
+<li><p><a class="reference external" href="https://patrickjhess.github.io/Imported-Functions/calc_convexity.html#">View Details</a></p></li>
+</ul>
+</li>
+<li><p><strong>one_y_axis</strong> (<a class="reference external" href="https://patrickjhess.github.io/Vol-3-Chap-1/Calculating_And_Graphing_The_Term_Structure_Of_Interest_Rates.html#graphing-the-spot-and-forward-rates-for-september-15-2022">Chapter One</a>): Plots multiple series against a single x axis.</p>
+<ul>
+<li><p><a class="reference external" href="https://patrickjhess.github.io/Imported-Functions/one_y_axis.html">View Details</a></p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># Define the URL of the Python module to be downloaded from Dropbox.</span>
+<span class="c1"># The &#39;dl=1&#39; parameter in the URL forces a direct download of the file content.</span>
+<span class="n">url</span><span class="o">=</span> <span class="s1">&#39;https://www.dropbox.com/scl/fi/4y5hjxlfphh1ngvbgo77q/</span><span class="se">\</span>
+<span class="s1">module_-basic_concepts_fixed_income.py?rlkey=6oxi7mgka42veaat79hcv8boz&amp;st=stuou11h&amp;dl=1&#39;</span>
+<span class="n">module_name</span><span class="o">=</span><span class="s1">&#39;basic_concepts_fixed_income&#39;</span>
+<span class="c1"># Send an HTTP GET request to the URL and store the server&#39;s response.</span>
+<span class="k">try</span><span class="p">:</span>
+  <span class="n">response</span><span class="o">=</span><span class="n">requests</span><span class="o">.</span><span class="n">get</span><span class="p">(</span><span class="n">url</span><span class="p">)</span>
+  <span class="c1"># Raise an exception for bad status codes (like 404 Not Found)</span>
+  <span class="n">response</span><span class="o">.</span><span class="n">raise_for_status</span><span class="p">()</span>
+  <span class="n">module</span><span class="o">=</span> <span class="n">ModuleType</span><span class="p">(</span><span class="n">module_name</span><span class="p">)</span>
+  <span class="c1">#Code contained in response.text executed</span>
+  <span class="n">exec</span><span class="p">(</span><span class="n">response</span><span class="o">.</span><span class="n">text</span><span class="p">,</span> <span class="n">module</span><span class="o">.</span><span class="vm">__dict__</span><span class="p">)</span>
+  <span class="c1"># Module added to sys</span>
+  <span class="n">sys</span><span class="o">.</span><span class="n">modules</span><span class="p">[</span><span class="n">module_name</span><span class="p">]</span><span class="o">=</span><span class="n">module</span>
+<span class="k">except</span> <span class="n">requests</span><span class="o">.</span><span class="n">exceptions</span><span class="o">.</span><span class="n">RequestException</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;❌ Error: Could not fetch module from URL. </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="k">except</span> <span class="ne">Exception</span> <span class="k">as</span> <span class="n">e</span><span class="p">:</span>
+    <span class="nb">print</span><span class="p">(</span><span class="sa">f</span><span class="s2">&quot;❌ Error: Failed to execute or import the module. </span><span class="si">{</span><span class="n">e</span><span class="si">}</span><span class="s2">&quot;</span><span class="p">)</span>
+<span class="c1"># Open the local file in &quot;write binary&quot; (&#39;wb&#39;) mode and save the downloaded content.</span>
+<span class="c1"># Using a &#39;with&#39; statement ensures the file is properly closed after writing.</span>
+
+<span class="c1"># Now that &#39;basic_concepts_fixed_income&#39; exists in the notebook, import the specific functions</span>
+<span class="kn">from</span><span class="w"> </span><span class="nn">basic_concepts_fixed_income</span><span class="w"> </span><span class="kn">import</span><span class="p">(</span><span class="n">bond_pay_data</span><span class="p">,</span>
+                                        <span class="n">bond_pv</span><span class="p">,</span>
+                                        <span class="n">calc_duration</span><span class="p">,</span>
+                                        <span class="n">calc_convexity</span><span class="p">,</span>
+                                        <span class="n">one_y_axis</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+</section>
+<section id="using-par-yield-data-to-demonstrate-convexity">
+<h2>Using par yield data to demonstrate convexity<a class="headerlink" href="#using-par-yield-data-to-demonstrate-convexity" title="Link to this heading">#</a></h2>
+<p>As in Chapter Five, par yield data is accessed from the U.S. Treasury for 2026.  The data is returned as a CSV file and the Pandas method <font color='green'>read_csv</font> returns a DataFrame.</p>
+<div class="highlight-default notranslate"><div class="highlight"><pre><span></span><span class="c1"># url address for daily par yields in 2026</span>
+<span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://home.treasury.gov/resource-center/data-chart-center/interest-rates/</span><span class="se">\</span>
+<span class="s1">daily-treasury-rates.csv/2026/all?field_tdr_date_value=2026</span><span class="se">\</span>
+<span class="s1">&amp;type=daily_treasury_yield_curve&amp;page&amp;_format=csv&#39;</span>
+
+<span class="c1"># pandas method read_csv creates the DataFrame, parse_dates converts strings to datetimes</span>
+<span class="n">us_treasury_par</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span><span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="c1">#display to confirm DataFrame creation</span>
+<span class="n">display</span><span class="p">(</span><span class="n">us_treasury_par</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
+
+</pre></div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># url address for daily par yields in 2026</span>
+<span class="n">url</span><span class="o">=</span><span class="s1">&#39;https://home.treasury.gov/resource-center/data-chart-center/interest-rates/</span><span class="se">\</span>
+<span class="s1">daily-treasury-rates.csv/2026/all?field_tdr_date_value=2026</span><span class="se">\</span>
+<span class="s1">&amp;type=daily_treasury_yield_curve&amp;page&amp;_format=csv&#39;</span>
+
+<span class="c1"># pandas method read_csv creates the DataFrame, parse_dates converts string to datetimes</span>
+<span class="n">us_treasury_par</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">read_csv</span><span class="p">(</span><span class="n">url</span><span class="p">,</span><span class="n">index_col</span><span class="o">=</span><span class="s1">&#39;Date&#39;</span><span class="p">,</span><span class="n">parse_dates</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># display to confirm DataFrame creation</span>
+<span class="n">display</span><span class="p">(</span><span class="n">us_treasury_par</span><span class="o">.</span><span class="n">iloc</span><span class="p">[:</span><span class="mi">5</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>1 Mo</th>
+      <th>1.5 Month</th>
+      <th>2 Mo</th>
+      <th>3 Mo</th>
+      <th>4 Mo</th>
+      <th>6 Mo</th>
+      <th>1 Yr</th>
+      <th>2 Yr</th>
+      <th>3 Yr</th>
+      <th>5 Yr</th>
+      <th>7 Yr</th>
+      <th>10 Yr</th>
+      <th>20 Yr</th>
+      <th>30 Yr</th>
+    </tr>
+    <tr>
+      <th>Date</th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2026-03-18</th>
+      <td>3.73</td>
+      <td>3.72</td>
+      <td>3.72</td>
+      <td>3.73</td>
+      <td>3.71</td>
+      <td>3.74</td>
+      <td>3.68</td>
+      <td>3.76</td>
+      <td>3.76</td>
+      <td>3.87</td>
+      <td>4.05</td>
+      <td>4.26</td>
+      <td>4.84</td>
+      <td>4.88</td>
+    </tr>
+    <tr>
+      <th>2026-03-17</th>
+      <td>3.74</td>
+      <td>3.72</td>
+      <td>3.72</td>
+      <td>3.72</td>
+      <td>3.69</td>
+      <td>3.71</td>
+      <td>3.63</td>
+      <td>3.68</td>
+      <td>3.68</td>
+      <td>3.79</td>
+      <td>3.98</td>
+      <td>4.20</td>
+      <td>4.81</td>
+      <td>4.85</td>
+    </tr>
+    <tr>
+      <th>2026-03-16</th>
+      <td>3.75</td>
+      <td>3.73</td>
+      <td>3.72</td>
+      <td>3.72</td>
+      <td>3.69</td>
+      <td>3.72</td>
+      <td>3.64</td>
+      <td>3.68</td>
+      <td>3.69</td>
+      <td>3.80</td>
+      <td>4.00</td>
+      <td>4.23</td>
+      <td>4.83</td>
+      <td>4.86</td>
+    </tr>
+    <tr>
+      <th>2026-03-13</th>
+      <td>3.75</td>
+      <td>3.74</td>
+      <td>3.71</td>
+      <td>3.72</td>
+      <td>3.69</td>
+      <td>3.70</td>
+      <td>3.66</td>
+      <td>3.73</td>
+      <td>3.74</td>
+      <td>3.87</td>
+      <td>4.07</td>
+      <td>4.28</td>
+      <td>4.89</td>
+      <td>4.90</td>
+    </tr>
+    <tr>
+      <th>2026-03-12</th>
+      <td>3.76</td>
+      <td>3.74</td>
+      <td>3.72</td>
+      <td>3.72</td>
+      <td>3.69</td>
+      <td>3.70</td>
+      <td>3.66</td>
+      <td>3.76</td>
+      <td>3.75</td>
+      <td>3.88</td>
+      <td>4.06</td>
+      <td>4.27</td>
+      <td>4.86</td>
+      <td>4.88</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="create-a-dataframe-of-par-yields-maturities-six-or-more-months-for-february-3-rd-2026">
+<h2>Create a DataFrame of par yields maturities six or more months for February 3<span class="math notranslate nohighlight">\(^{rd}\)</span> 2026.<a class="headerlink" href="#create-a-dataframe-of-par-yields-maturities-six-or-more-months-for-february-3-rd-2026" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Use the <font color='green'>columns</font> attribute to exclude maturities less six months.</p></li>
+<li><p>Get the desired data with <font color='green'>loc</font> attribute of selected date and maturities with row and columns.</p>
+<ul>
+<li><p>row: ‘2026-02-03’</p></li>
+<li><p>columns: <font color='green'>select_maturities</font></p></li>
+</ul>
+</li>
+<li><p>Use Pandas function <font color='green'>DateOffset</font> to determine maturity dates relative to the assumed date of February 3<span class="math notranslate nohighlight">\(^{rd}\)</span> 2026.<span class="math notranslate nohighlight">\(^{3}\)</span></p></li>
+<li><p>Create <font color='green'>par_yield_data</font> from the values of <font color='green'>feb_3_2026_par_yields</font> and the calculated maturity dates.</p></li>
+</ul>
+<hr class="docutils" />
+<p><span class="math notranslate nohighlight">\(^{3}\)</span> For more information on <font color='green'>DateOffset</font> see “<a href='https://patrickjhess.github.io/Introduction-To-Python-For-Financial-Python/DateOffset"'>Date Offset</a> in Background Material. <font color='green'>NOT COMPLETED!!</font></p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># get columns (maturity dates of par yields) for 6 months to 30 years</span>
+<span class="n">select_maturities</span> <span class="o">=</span> <span class="p">[</span><span class="n">maturity</span> <span class="k">for</span> <span class="n">maturity</span> <span class="ow">in</span> <span class="n">us_treasury_par</span><span class="o">.</span><span class="n">columns</span>
+                     <span class="k">if</span> <span class="s1">&#39;6 Mo&#39;</span> <span class="ow">in</span> <span class="n">maturity</span> <span class="ow">or</span> <span class="s1">&#39;Yr&#39;</span> <span class="ow">in</span> <span class="n">maturity</span><span class="p">]</span>
+
+<span class="c1"># This returns a DataFrame because select_maturities is a list</span>
+<span class="n">feb_3_2026_par_yields</span> <span class="o">=</span> <span class="n">us_treasury_par</span><span class="o">.</span><span class="n">loc</span><span class="p">[[</span><span class="s1">&#39;2026-02-03&#39;</span><span class="p">],</span> <span class="n">select_maturities</span><span class="p">]</span>
+
+<span class="c1"># FIX: Use .index[0] instead of .name</span>
+<span class="n">current_date</span> <span class="o">=</span> <span class="n">feb_3_2026_par_yields</span><span class="o">.</span><span class="n">index</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+
+<span class="c1"># Calculate offsets (logic remains the same)</span>
+<span class="n">offset_months</span> <span class="o">=</span> <span class="p">[</span><span class="nb">int</span><span class="p">(</span><span class="n">value</span><span class="o">.</span><span class="n">split</span><span class="p">()[</span><span class="mi">0</span><span class="p">])</span> <span class="o">*</span> <span class="mi">12</span> <span class="k">if</span> <span class="s1">&#39;Mo&#39;</span> <span class="ow">not</span> <span class="ow">in</span> <span class="n">value</span> <span class="k">else</span> <span class="mi">6</span>
+                 <span class="k">for</span> <span class="n">value</span> <span class="ow">in</span> <span class="n">select_maturities</span><span class="p">]</span>
+
+<span class="c1"># Create the specific maturity dates</span>
+<span class="n">maturities</span> <span class="o">=</span> <span class="p">[</span><span class="n">current_date</span> <span class="o">+</span> <span class="n">pd</span><span class="o">.</span><span class="n">DateOffset</span><span class="p">(</span><span class="n">months</span><span class="o">=</span><span class="n">num_months</span><span class="p">)</span> <span class="k">for</span> <span class="n">num_months</span> <span class="ow">in</span> <span class="n">offset_months</span><span class="p">]</span>
+
+<span class="c1"># create a DataFrame - flatten the values since feb_3_2026_par_yields is 2D</span>
+<span class="n">par_yield_data</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Par Yields&#39;</span><span class="p">:</span> <span class="n">feb_3_2026_par_yields</span><span class="o">.</span><span class="n">values</span><span class="o">.</span><span class="n">flatten</span><span class="p">()},</span>
+                              <span class="n">index</span><span class="o">=</span><span class="n">maturities</span><span class="p">)</span>
+
+<span class="n">display</span><span class="p">(</span><span class="n">par_yield_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Par Yields</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2026-08-03</th>
+      <td>3.62</td>
+    </tr>
+    <tr>
+      <th>2027-02-03</th>
+      <td>3.49</td>
+    </tr>
+    <tr>
+      <th>2028-02-03</th>
+      <td>3.57</td>
+    </tr>
+    <tr>
+      <th>2029-02-03</th>
+      <td>3.64</td>
+    </tr>
+    <tr>
+      <th>2031-02-03</th>
+      <td>3.83</td>
+    </tr>
+    <tr>
+      <th>2033-02-03</th>
+      <td>4.04</td>
+    </tr>
+    <tr>
+      <th>2036-02-03</th>
+      <td>4.28</td>
+    </tr>
+    <tr>
+      <th>2046-02-03</th>
+      <td>4.85</td>
+    </tr>
+    <tr>
+      <th>2056-02-03</th>
+      <td>4.90</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="calculate-the-convexity-and-duration-with-par-yields">
+<h2>Calculate the convexity and duration with par yields<a class="headerlink" href="#calculate-the-convexity-and-duration-with-par-yields" title="Link to this heading">#</a></h2>
+<p>The convexity and duration for each bond is calculated with the imported functions:</p>
+<ul class="simple">
+<li><p><strong>Convexity</strong>: <font color='green'>calc_convexity</font></p></li>
+<li><p><strong>Duration</strong>: <font color='green'>calc_duration</font></p></li>
+</ul>
+<p>The yield to maturity of the bonds are inferred from their coupons and their price of 100.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># this is the date that the bond math (time to maturity) is calculated from.</span>
+<span class="n">settlement</span> <span class="o">=</span> <span class="n">date</span><span class="p">(</span><span class="mi">2026</span><span class="p">,</span> <span class="mi">2</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># create empty lists to hold the calculated values for every bond in the loop.</span>
+<span class="n">convexities</span> <span class="o">=</span> <span class="p">[]</span>
+<span class="n">durations</span> <span class="o">=</span> <span class="p">[]</span>
+
+<span class="c1"># zip the dataframe&#39;s index (Maturity Dates) and values (Coupons)</span>
+<span class="c1"># to access both properties simultaneously for each row.</span>
+<span class="k">for</span> <span class="n">maturity</span><span class="p">,</span> <span class="n">coupon</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">par_yield_data</span><span class="o">.</span><span class="n">index</span><span class="p">,</span> <span class="n">par_yield_data</span><span class="o">.</span><span class="n">values</span><span class="p">):</span>
+
+  <span class="c1"># calculate Convexity</span>
+  <span class="c1"># calls the custom &#39;calc_convexity&#39; function using the bond&#39;s specific maturity and coupon.</span>
+  <span class="c1"># assumes a par price of 100. result is rounded to 3 decimal places.</span>
+  <span class="n">convexities</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">calc_convexity</span><span class="p">(</span><span class="n">maturity</span><span class="p">,</span> <span class="n">coupon</span><span class="p">,</span> <span class="n">price</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+                                          <span class="n">settlement</span><span class="o">=</span><span class="n">settlement</span><span class="p">),</span> <span class="mi">3</span><span class="p">))</span>
+
+  <span class="c1"># calculate Duration</span>
+  <span class="c1"># calls the custom &#39;calc_duration&#39; function for the same bond rounded to 3 decimal places.</span>
+  <span class="c1"># result is rounded to 3 decimal places.</span>
+  <span class="n">durations</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="nb">round</span><span class="p">(</span><span class="n">calc_duration</span><span class="p">(</span><span class="n">maturity</span><span class="p">,</span> <span class="n">coupon</span><span class="p">,</span> <span class="n">price</span><span class="o">=</span><span class="mi">100</span><span class="p">,</span>
+                                       <span class="n">settlement</span><span class="o">=</span><span class="n">settlement</span><span class="p">),</span> <span class="mi">3</span><span class="p">))</span>
+
+<span class="c1"># assign the lists as new columns to the existing &#39;par_yield_data&#39; DataFrame.</span>
+<span class="n">par_yield_data</span><span class="p">[</span><span class="s1">&#39;Convexity&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">convexities</span>
+<span class="n">par_yield_data</span><span class="p">[</span><span class="s1">&#39;Duration&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="n">durations</span>
+
+<span class="c1"># display the DataFrame to verify the new columns have been added correctly.</span>
+<span class="n">display</span><span class="p">(</span><span class="n">par_yield_data</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><div>
+<style scoped>
+    .dataframe tbody tr th:only-of-type {
+        vertical-align: middle;
+    }
+
+    .dataframe tbody tr th {
+        vertical-align: top;
+    }
+
+    .dataframe thead th {
+        text-align: right;
+    }
+</style>
+<table border="1" class="dataframe">
+  <thead>
+    <tr style="text-align: right;">
+      <th></th>
+      <th>Par Yields</th>
+      <th>Convexity</th>
+      <th>Duration</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th>2026-08-03</th>
+      <td>3.62</td>
+      <td>0.246</td>
+      <td>0.496</td>
+    </tr>
+    <tr>
+      <th>2027-02-03</th>
+      <td>3.49</td>
+      <td>0.986</td>
+      <td>0.991</td>
+    </tr>
+    <tr>
+      <th>2028-02-03</th>
+      <td>3.57</td>
+      <td>3.847</td>
+      <td>1.947</td>
+    </tr>
+    <tr>
+      <th>2029-02-03</th>
+      <td>3.64</td>
+      <td>8.489</td>
+      <td>2.874</td>
+    </tr>
+    <tr>
+      <th>2031-02-03</th>
+      <td>3.83</td>
+      <td>22.264</td>
+      <td>4.597</td>
+    </tr>
+    <tr>
+      <th>2033-02-03</th>
+      <td>4.04</td>
+      <td>41.171</td>
+      <td>6.167</td>
+    </tr>
+    <tr>
+      <th>2036-02-03</th>
+      <td>4.28</td>
+      <td>76.619</td>
+      <td>8.239</td>
+    </tr>
+    <tr>
+      <th>2046-02-03</th>
+      <td>4.85</td>
+      <td>219.498</td>
+      <td>13.020</td>
+    </tr>
+    <tr>
+      <th>2056-02-03</th>
+      <td>4.90</td>
+      <td>368.043</td>
+      <td>16.014</td>
+    </tr>
+  </tbody>
+</table>
+</div></div></div>
+</div>
+</section>
+<section id="the-relation-between-duration-and-convexity">
+<h2>The relation between duration and convexity<a class="headerlink" href="#the-relation-between-duration-and-convexity" title="Link to this heading">#</a></h2>
+<p>The six-month maturity bond is noteworthy because it is assumed to have a single payment, meaning its convexity is simply equal to the square of its duration. In contrast, bonds that are assumed to make interim payments will have convexities that are greater than the squared value of their durations.</p>
+</section>
+<section id="two-hypothetical-long-convexity-zero-duration-trades">
+<h2>Two hypothetical long convexity zero duration trades<a class="headerlink" href="#two-hypothetical-long-convexity-zero-duration-trades" title="Link to this heading">#</a></h2>
+<p>This notebook details two distinct bond trading strategies. Both involve taking a long position in a thirty-year bond and hedging it with a short position in either a twenty-year or a ten-year bond. This approach is designed to neutralize the impact of parallel shifts in interest rates, allowing the trade to profit from volatility. The position does not, however, perfectly hedge against changes in the yield curve’s slope or shape. In contrast to the notebook that demonstrated the convexity effect with a parallel yield shift (<em>Illustrating The Effects With Parallel Shifts In Yields To Maturity</em>), the par yield bonds are priced at their par values of 100 allowing the hedge ratios to be solely determined by the ratios of durations.</p>
+<p><strong>Trade 1: Long 30-Year, Short 20-Year</strong></p>
+<p>This trade involves a long position of one thirty-year bond and a short position of 1.23 twenty-year bonds. The 1:1.23 long-short ratio is selected to achieve a zero-duration position while maximizing positive convexity:</p>
+<br>
+<ul class="simple">
+<li><p><strong>Duration</strong>: <span class="math notranslate nohighlight">\(0 = 16.014 -1.23\times 13.02\)</span></p></li>
+<li><p><strong>Convexity</strong>:  <span class="math notranslate nohighlight">\(98.07 = 368.043 -1.23\times 219.498\)</span></p></li>
+</ul>
+<br>
+<p><strong>Trade 2: Long 30-Year, Short 10-Year</strong></p>
+<p>The second trade pairs a long position of one thirty-year bond with a short position of 1.94 ten-year bonds. Similar to Trade 1, this 1:1.94 hedge ratio results in zero duration but achieves a significantly higher convexity:</p>
+<br>
+<ul class="simple">
+<li><p><strong>Duration</strong>:  <span class="math notranslate nohighlight">\(0 = 16.014 - 1.94\times 8.239\)</span></p></li>
+<li><p><strong>Convexity</strong>: <span class="math notranslate nohighlight">\(219.12 = 368.043 -1.94\times 76.619\)</span>
+<br></p></li>
+</ul>
+</section>
+<section id="get-preliminary-data-for-ten-twenty-and-thirty-year-bonds-selling-for-par-yield">
+<h2>Get preliminary data for ten, twenty, and thirty year bonds selling for par yield.<a class="headerlink" href="#get-preliminary-data-for-ten-twenty-and-thirty-year-bonds-selling-for-par-yield" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p><strong>Settlement Date</strong>: February 3<span class="math notranslate nohighlight">\(^{3}\)</span> 2026</p></li>
+<li><p><strong>Maturity Dates</strong>:</p>
+<ul>
+<li><p>Settlement date plus ten years <font color='green'>date(2036,2,3)</font></p></li>
+<li><p>Settlement date plus twenty years <font color='green'>date(2046,2,3)</font></p></li>
+<li><p>Settlement date plus thirty years <font color='green'>date(2056,2,3)</font></p></li>
+</ul>
+</li>
+<li><p><strong>Hedge Ratios (short position)</strong>:</p>
+<ul>
+<li><p>ten-year hedge ratio is 1.94  <font color=green><span class="math notranslate nohighlight">\(\Large(\frac{duration_{30}}{duration_{10}})\)</span></font></p></li>
+<li><p>twenty-year hedge ratio is 1.23 <font color=green><span class="math notranslate nohighlight">\(\Large(\frac{duration_{30}}{duration_{20}})\)</span></font></p></li>
+</ul>
+</li>
+<li><p><strong>Continuous Yields to Maturity</strong>:</p>
+<ul>
+<li><p>ten-year yield to maturity <font color='green'>2*np.log(1+coupon_10/200)</font></p></li>
+<li><p>twenty-year yield to maturity <font color='green'>2*np.log(1+coupon_20/200)</font></p></li>
+<li><p>thirty-year yield to maturity <font color='green'>2*np.log(1+coupon_30/200)</font></p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># assumed settlement date</span>
+<span class="n">settlement</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="mi">2026</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># maturity dates</span>
+<span class="n">maturity_10</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="mi">2036</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">maturity_20</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="mi">2046</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">maturity_30</span><span class="o">=</span><span class="n">date</span><span class="p">(</span><span class="mi">2056</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span>
+
+<span class="c1"># get coupon rates with row and column value of loc</span>
+<span class="n">coupon_10</span><span class="o">=</span><span class="n">par_yield_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2036-02-03&#39;</span><span class="p">,</span><span class="s1">&#39;Par Yields&#39;</span><span class="p">]</span>
+<span class="n">coupon_20</span><span class="o">=</span><span class="n">par_yield_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2046-02-03&#39;</span><span class="p">,</span><span class="s1">&#39;Par Yields&#39;</span><span class="p">]</span>
+<span class="n">coupon_30</span><span class="o">=</span><span class="n">par_yield_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2056-02-03&#39;</span><span class="p">,</span><span class="s1">&#39;Par Yields&#39;</span><span class="p">]</span>
+
+<span class="c1"># get durations with row and column value of loc</span>
+<span class="n">duration_10</span><span class="o">=</span><span class="n">par_yield_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2036-02-03&#39;</span><span class="p">,</span><span class="s1">&#39;Duration&#39;</span><span class="p">]</span>
+<span class="n">duration_20</span><span class="o">=</span><span class="n">par_yield_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2046-02-03&#39;</span><span class="p">,</span><span class="s1">&#39;Duration&#39;</span><span class="p">]</span>
+<span class="n">duration_30</span><span class="o">=</span><span class="n">par_yield_data</span><span class="o">.</span><span class="n">loc</span><span class="p">[</span><span class="s1">&#39;2056-02-03&#39;</span><span class="p">,</span><span class="s1">&#39;Duration&#39;</span><span class="p">]</span>
+
+<span class="c1"># hedge ratios</span>
+<span class="n">hedge_ratio_30_10</span><span class="o">=</span><span class="n">duration_30</span><span class="o">/</span><span class="n">duration_10</span>
+<span class="n">hedge_ratio_30_20</span><span class="o">=</span><span class="n">duration_30</span><span class="o">/</span><span class="n">duration_20</span>
+
+<span class="c1"># continuous yields to maturity</span>
+<span class="n">ytm_10</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">coupon_10</span><span class="o">/</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">ytm_20</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">coupon_20</span><span class="o">/</span><span class="mi">200</span><span class="p">)</span>
+<span class="n">ytm_30</span><span class="o">=</span><span class="mi">2</span><span class="o">*</span><span class="n">np</span><span class="o">.</span><span class="n">log</span><span class="p">(</span><span class="mi">1</span><span class="o">+</span><span class="n">coupon_30</span><span class="o">/</span><span class="mi">200</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="get-bond-values-for-the-ten-twenty-and-thirty-year-bonds">
+<h2>Get bond values for the ten, twenty, and thirty year bonds.<a class="headerlink" href="#get-bond-values-for-the-ten-twenty-and-thirty-year-bonds" title="Link to this heading">#</a></h2>
+<p>Because the yields to maturity of the bonds are converted from discrete to continuous compounding, the initial bond values will be calculated to avoid small rounding errors. The calculation of the initial and changes in bond prices from changes in yield to maturity require two imported functions.</p>
+<ul class="simple">
+<li><p><strong>pay_data</strong> returned by <font color='green'>bond_pay_data</font>:</p>
+<ul>
+<li><p>first element: NumPy array of payment dates</p></li>
+<li><p>second element: NumPy array of payment amounts ($100 par value)</p></li>
+</ul>
+</li>
+<li><p><strong>bond_value</strong> returned by <font color='green'>bond_pv</font> (first and second derivatives ignored).</p></li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># calls &#39;bond_pay_data&#39; to retrieve payment dates and amounts for</span>
+<span class="c1"># 10, 20, and 30-year bonds based on their specific maturities and coupons.</span>
+<span class="n">pay_data_10</span><span class="o">=</span><span class="n">bond_pay_data</span><span class="p">(</span><span class="n">maturity_10</span><span class="p">,</span><span class="n">coupon_10</span><span class="p">,</span> <span class="n">settlement</span><span class="o">=</span><span class="n">settlement</span><span class="p">)</span>
+<span class="n">pay_data_20</span><span class="o">=</span><span class="n">bond_pay_data</span><span class="p">(</span><span class="n">maturity_20</span><span class="p">,</span><span class="n">coupon_20</span><span class="p">,</span> <span class="n">settlement</span><span class="o">=</span><span class="n">settlement</span><span class="p">)</span>
+<span class="n">pay_data_30</span><span class="o">=</span><span class="n">bond_pay_data</span><span class="p">(</span><span class="n">maturity_30</span><span class="p">,</span><span class="n">coupon_30</span><span class="p">,</span><span class="n">settlement</span><span class="o">=</span><span class="n">settlement</span><span class="p">)</span>
+
+<span class="c1"># extracts the payment dates (index [0]), converts to NumPy arrays,</span>
+<span class="c1"># and subtracts the settlement date to find the difference in days</span>
+<span class="c1"># calulations are vectorized with NumPy arrays</span>
+<span class="c1"># divide by 365.25 to convert &quot;days&quot; into &quot;years&quot; for discounting.</span>
+<span class="n">pay_dates_10</span><span class="o">=</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pay_data_10</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;datetime64[D]&#39;</span><span class="p">)</span>
+             <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">datetime64</span><span class="p">(</span><span class="n">settlement</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span> <span class="o">/</span> <span class="mf">365.25</span>
+<span class="n">pay_dates_20</span><span class="o">=</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pay_data_20</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;datetime64[D]&#39;</span><span class="p">)</span>
+             <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">datetime64</span><span class="p">(</span><span class="n">settlement</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span> <span class="o">/</span> <span class="mf">365.25</span>
+<span class="n">pay_dates_30</span><span class="o">=</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">pay_data_30</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">dtype</span><span class="o">=</span><span class="s1">&#39;datetime64[D]&#39;</span><span class="p">)</span>
+             <span class="o">-</span> <span class="n">np</span><span class="o">.</span><span class="n">datetime64</span><span class="p">(</span><span class="n">settlement</span><span class="p">))</span><span class="o">.</span><span class="n">astype</span><span class="p">(</span><span class="nb">float</span><span class="p">)</span> <span class="o">/</span> <span class="mf">365.25</span>
+
+<span class="c1"># extracts the cash flow amounts (coupons + principal) from index [1]</span>
+<span class="n">payments_10</span><span class="o">=</span><span class="n">pay_data_10</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">payments_20</span><span class="o">=</span><span class="n">pay_data_20</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+<span class="n">payments_30</span><span class="o">=</span><span class="n">pay_data_30</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># wraps the raw pay_data tuples into dictionaries.</span>
+<span class="c1"># standardizes the input format expected by the &#39;bond_pv&#39; function.</span>
+<span class="n">data_10</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;pay_data&#39;</span><span class="p">:</span><span class="n">pay_data_10</span><span class="p">}</span>
+<span class="n">data_20</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;pay_data&#39;</span><span class="p">:</span><span class="n">pay_data_20</span><span class="p">}</span>
+<span class="n">data_30</span><span class="o">=</span><span class="p">{</span><span class="s1">&#39;pay_data&#39;</span><span class="p">:</span><span class="n">pay_data_30</span><span class="p">}</span>
+
+<span class="c1"># calls &#39;bond_pv&#39; using the specific Yield to Maturity (YTM) for each bond</span>
+<span class="c1"># the function returns a tuple (PV, Duration, Convexity),</span>
+<span class="c1"># but  &#39;_, _&#39; to ignore the extra outputs and keep only the Price/PV.</span>
+<span class="n">bond_value_10</span><span class="p">,</span><span class="n">_</span><span class="p">,</span><span class="n">_</span><span class="o">=</span><span class="n">bond_pv</span><span class="p">(</span><span class="n">ytm_10</span><span class="p">,</span><span class="n">data_10</span><span class="p">,</span><span class="n">settlement</span><span class="o">=</span><span class="n">settlement</span><span class="p">)</span>
+<span class="n">bond_value_20</span><span class="p">,</span><span class="n">_</span><span class="p">,</span><span class="n">_</span><span class="o">=</span><span class="n">bond_pv</span><span class="p">(</span><span class="n">ytm_20</span><span class="p">,</span><span class="n">data_20</span><span class="p">,</span><span class="n">settlement</span><span class="o">=</span><span class="n">settlement</span><span class="p">)</span>
+<span class="n">bond_value_30</span><span class="p">,</span><span class="n">_</span><span class="p">,</span><span class="n">_</span><span class="o">=</span><span class="n">bond_pv</span><span class="p">(</span><span class="n">ytm_30</span><span class="p">,</span><span class="n">data_30</span><span class="p">,</span><span class="n">settlement</span><span class="o">=</span><span class="n">settlement</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="calculating-the-simulated-convexity-trade-returns">
+<h2>Calculating the simulated convexity trade returns<a class="headerlink" href="#calculating-the-simulated-convexity-trade-returns" title="Link to this heading">#</a></h2>
+<p>Bond values for each simulated yield to maturity (YTM) are calculated by taking the discounted sum of the element-by-element product of the pay dates and payments, where the discount rate is the simulated YTM.</p>
+<p>YTM changes are simulated using the beta distribution from the <strong>scipy.stats</strong> module of the SciPy library (scientific Python). Three distinct beta distributions are employed to generate simulated values for two types of changes:
+<br></p>
+<ol class="arabic simple">
+<li><p><strong>Parallel shifts</strong> in YTM.</p></li>
+<li><p><strong>Changes in the shape and slope</strong> of the yield curve.
+<br></p></li>
+</ol>
+<p>These distributions, originally defined on the interval <span class="math notranslate nohighlight">\([0, 1]\)</span>, are scaled to meet the specified range for changes in YTM assumed to be between minus and plus 1.0% (-100 and 100 basis points) for parallel shifts.</p>
+<p>The uncertainty in the shape and slope is modeled using independent beta distributions for the random YTM increments of the ten-, twenty-, and thirty-year bonds. These random increments are defined on the interval -0.25% to 0.25% (-25 to +25 basis points).</p>
+</section>
+<section id="parallel-changes-in-yields-to-maturity">
+<h2>Parallel changes in yields to maturity<a class="headerlink" href="#parallel-changes-in-yields-to-maturity" title="Link to this heading">#</a></h2>
+<p>The simulation of hypothetical trades is achieved by modeling parallel shifts in the bonds’ yields to maturity. Each scenario assumes that the yields of the three bonds change by an equal amount.</p>
+<p>Three probability distributions, ranging from lowest to highest uncertainty, are used to model these parallel yield shifts, with changes allowed between -1% and +1%. These distributions, ordered from least to greatest uncertainty, are:</p>
+<br>
+<div align="center">
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Level of Uncertainty</p></th>
+<th class="head"><p>Peak Parameter</p></th>
+<th class="head"><p>Expected Change</p></th>
+<th class="head"><p>Volatility Of Change</p></th>
+<th class="head"><p>Range</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Least</p></td>
+<td><p>     (10,10)</p></td>
+<td><p>     0.0</p></td>
+<td><p>   0.22%</p></td>
+<td><p>  (-1%, 1%)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mid-point</p></td>
+<td><p>          (2,2)</p></td>
+<td><p>     0.0</p></td>
+<td><p>   0.44%</p></td>
+<td><p>  (-1%, 1%)</p></td>
+</tr>
+<tr class="row-even"><td><p>Greatest</p></td>
+<td><p>       (1,1)</p></td>
+<td><p>     0.0</p></td>
+<td><p>   0.58%</p></td>
+<td><p>  (-1%, 1%)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<img src='https://docs.google.com/drawings/d/e/2PACX-1vQrbrkLZ6tFGXhRpG-wR6uMoGsdFrG4UoDmcrU0juapU_AXYjyAuiFKlY1lT6fbUNGBtU_3aGyb_GqU/pub?w=800&h=600'>
+</div>
+<br></section>
+<section id="non-parallel-changes-in-yields-to-maturity">
+<h2>Non-parallel changes in yields to maturity<a class="headerlink" href="#non-parallel-changes-in-yields-to-maturity" title="Link to this heading">#</a></h2>
+<p>Non-parallel shifts in yields to maturity are created by applying random adjustments to the parallel yield changes. These adjustments range from -0.25% to 0.25% (-25 to +25 basis points) and are independently applied to each bond. Crucially, the shapes and type of distribution generating the random adjustments are the same as those used to generate the original parallel yield changes. The only difference is the range of values: [-1%, 1%] for parallel versus [-0.25%, 0.25%] for non-parallel shifts.</p>
+<p>Matching the underlying distributions in this way results in a strong correlation (0.97) between the simulated parallel and non-parallel yields to maturity.</p>
+<div align="center">
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>Least Parallel</p></th>
+<th class="head"><p>Mid-point Parallel</p></th>
+<th class="head"><p>Greatest Parallel</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Least Non-Parallel</p></td>
+<td><p>     0.97</p></td>
+<td><p>     0.89</p></td>
+<td><p>   0.84</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mid-point Non-Parallel</p></td>
+<td><p>     0.99</p></td>
+<td><p>     0.97</p></td>
+<td><p>   0.95</p></td>
+</tr>
+<tr class="row-even"><td><p>Greatest Non-Parallel</p></td>
+<td><p>    0.996</p></td>
+<td><p>     0.98</p></td>
+<td><p>   0.97</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<br>
+<p>The correlation between the simulated non-parallel yields to maturity of the bonds is 0.94. The distribution of the random increments are described below.</p>
+<div align="center">
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p>Level of Uncertainity</p></th>
+<th class="head"><p>Peak Parameter</p></th>
+<th class="head"><p>Expected Change</p></th>
+<th class="head"><p>Volatility Of Change</p></th>
+<th class="head"><p>Range</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>Least</p></td>
+<td><p>     (10,10)</p></td>
+<td><p>     0.0</p></td>
+<td><p>   0.055%</p></td>
+<td><p>  (-0.25%, 0.25%)</p></td>
+</tr>
+<tr class="row-odd"><td><p>Mid-point</p></td>
+<td><p>         (2,2)</p></td>
+<td><p>     0.0</p></td>
+<td><p>     0.110%</p></td>
+<td><p>  (-0.25%, 0.25%)</p></td>
+</tr>
+<tr class="row-even"><td><p>Greatest</p></td>
+<td><p>          (1,1)</p></td>
+<td><p>     0.0</p></td>
+<td><p>     0.145%</p></td>
+<td><p>  (-0.25%, 0.25%)</p></td>
+</tr>
+</tbody>
+</table>
+</div>
+<img src='https://docs.google.com/drawings/d/e/2PACX-1vScMYXrcM_CmTtHexMei9EaiaugibBUusDttrq5uC5TYbZJUCS6KA_PVU6MltjGhn_GaIgNFuBbDGaj/pub?w=800&h=600'>
+</div>
+<br>
+</section>
+<section id="parallel-changes-are-used-in-the-parallel-and-non-parallel-simulations">
+<h2>Parallel changes are used in the parallel and non-parallel simulations<a class="headerlink" href="#parallel-changes-are-used-in-the-parallel-and-non-parallel-simulations" title="Link to this heading">#</a></h2>
+<p>The dictionary <font color='green'>simulated_uncertainty</font> holds the simulated parallel changes.</p>
+<ul class="simple">
+<li><p><strong>Least</strong>: 22 basis points standard deviation.</p></li>
+<li><p><strong>Mid-Point</strong> 44 basis points standard deviation</p></li>
+<li><p><strong>Greatest</strong> 58 basis points standard deviation.</p></li>
+</ul>
+<p>The <font color='green'>rvs</font> (random value sample) function generates simulated values for the beta distribution.  The <font color='green'>shape</font> determines the peak (both values are the same for symmetrical distributions); <font color='green'>size</font> determines the number of simulations and the dimensionality of the array (100,000 rows with one column).</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># each distribution is a two-dimensional array with 100,000 rows and one column</span>
+<span class="n">simulated_uncertainty</span><span class="o">=</span><span class="p">{</span>
+    <span class="s1">&#39;Least&#39;</span><span class="p">:</span>     <span class="n">beta</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">100000</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="mf">0.02</span><span class="o">-</span><span class="mf">0.01</span><span class="p">,</span>
+    <span class="s1">&#39;Mid-Point&#39;</span><span class="p">:</span> <span class="n">beta</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">100000</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="mf">0.02</span><span class="o">-</span><span class="mf">0.01</span><span class="p">,</span>
+    <span class="s1">&#39;Greatest&#39;</span><span class="p">:</span>  <span class="n">beta</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">100000</span><span class="p">,</span><span class="mi">1</span><span class="p">))</span><span class="o">*</span><span class="mf">0.02</span><span class="o">-</span><span class="mf">0.01</span><span class="p">}</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="simulate-changes-in-value-of-the-three-bonds">
+<h2>Simulate changes in value of the three bonds<a class="headerlink" href="#simulate-changes-in-value-of-the-three-bonds" title="Link to this heading">#</a></h2>
+<p>The function <font color='green'>calc_delta_value</font> returns the change in the bond values for changes in their yields to maturity.  The function accounts for parallel and  non-parallel changes in yields to maturity.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">calc_delta_value</span><span class="p">(</span><span class="n">parallel_delta</span><span class="p">,</span><span class="n">ytm</span><span class="p">,</span><span class="n">pay_dates</span><span class="p">,</span><span class="n">payments</span><span class="p">,</span>
+                     <span class="n">bond_value</span><span class="p">,</span><span class="n">shape</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span><span class="n">scale</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span><span class="n">random</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+  <span class="c1"># make sure parallel_delta is two dimensional for calculations</span>
+  <span class="k">if</span> <span class="n">parallel_delta</span><span class="o">.</span><span class="n">ndim</span><span class="o">==</span><span class="mi">1</span><span class="p">:</span>
+    <span class="n">parallel_delta</span><span class="o">=</span><span class="n">parallel_delta</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)</span>
+
+  <span class="c1"># test necessary condition for changes in slope and shape</span>
+  <span class="k">if</span> <span class="n">random</span> <span class="ow">and</span> <span class="n">shape</span> <span class="ow">is</span> <span class="ow">not</span> <span class="kc">None</span><span class="p">:</span>
+    <span class="c1"># generate idiosyncratic noise that alters slope and shape</span>
+    <span class="c1"># Note: Changed -0.01 to 0.01 to center the distribution around 0 and scale it</span>
+    <span class="n">noise</span> <span class="o">=</span> <span class="p">(</span><span class="n">beta</span><span class="o">.</span><span class="n">rvs</span><span class="p">(</span><span class="n">shape</span><span class="p">[</span><span class="mi">0</span><span class="p">],</span> <span class="n">shape</span><span class="p">[</span><span class="mi">1</span><span class="p">],</span> <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">parallel_delta</span><span class="p">),</span> <span class="mi">1</span><span class="p">))</span> <span class="o">*</span> <span class="mf">0.02</span> <span class="o">-</span> <span class="mf">0.01</span><span class="p">)</span> <span class="o">*</span> <span class="n">scale</span>
+    <span class="n">total_shock</span> <span class="o">=</span> <span class="n">parallel_delta</span> <span class="o">+</span> <span class="n">noise</span>
+
+  <span class="c1"># no change in slope or shape</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="n">total_shock</span> <span class="o">=</span> <span class="n">parallel_delta</span>
+
+  <span class="c1"># calculate change in value of bond</span>
+  <span class="n">delta_value</span><span class="o">=</span><span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">exp</span><span class="p">(</span><span class="o">-</span><span class="p">(</span><span class="n">ytm</span><span class="o">+</span><span class="n">total_shock</span><span class="p">)</span><span class="o">*</span><span class="n">pay_dates</span><span class="p">)</span>
+                    <span class="o">*</span><span class="n">payments</span><span class="p">,</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span><span class="o">-</span><span class="n">bond_value</span>
+  <span class="k">return</span> <span class="n">delta_value</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="function-calc-convexity-trade">
+<h2>Function <font color='green'>calc_convexity_trade</font><a class="headerlink" href="#function-calc-convexity-trade" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Calculates the profit from both convexity trades</p>
+<ul>
+<li><p>parallel changes in yields to maturity</p></li>
+<li><p>non-parallel changes- changes in slope and shape</p></li>
+</ul>
+</li>
+<li><p>Create Dataframes of summary statistics of convexity trades with Pandas method <font color='green'>describe</font></p></li>
+</ul>
+<p>Because the function accounts for parallel and non-parallel simulations, it’s necessary to pass an argument for shape for non-parallel changes in yields to maturity.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># shape only applied when random is True</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">calc_convexity_trade</span><span class="p">(</span><span class="n">shapes</span><span class="o">=</span><span class="p">((</span><span class="mi">10</span><span class="p">,</span><span class="mi">10</span><span class="p">),(</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">),(</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">)),</span><span class="n">scale</span><span class="o">=</span><span class="mf">0.0</span><span class="p">,</span><span class="n">random</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+
+  <span class="c1"># instantiate a DataFrame for each trade</span>
+  <span class="n">convexity_30_20</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+  <span class="n">convexity_30_10</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">()</span>
+
+  <span class="c1"># iterate through shapes to get levels of uncertainty for non-parallel</span>
+  <span class="c1"># simulated_uncertainty dictionary for parallel uncertainty</span>
+  <span class="k">for</span> <span class="n">shape</span><span class="p">,(</span><span class="n">column</span><span class="p">,</span><span class="n">simulate</span><span class="p">)</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">shapes</span><span class="p">,</span><span class="n">simulated_uncertainty</span><span class="o">.</span><span class="n">items</span><span class="p">()):</span>
+
+  <span class="c1"># change in value from change in yield to maturity</span>
+  <span class="c1"># 10-Year Bond</span>
+    <span class="n">delta_value_10</span> <span class="o">=</span> <span class="n">calc_delta_value</span><span class="p">(</span>
+        <span class="n">simulate</span><span class="p">,</span> <span class="n">ytm_10</span><span class="p">,</span> <span class="n">pay_dates_10</span><span class="p">,</span> <span class="n">payments_10</span><span class="p">,</span> <span class="n">bond_value_10</span><span class="p">,</span>
+        <span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">,</span> <span class="n">random</span><span class="o">=</span><span class="n">random</span><span class="p">)</span>
+
+    <span class="c1"># 20-Year Bond (Fixed argument error here)</span>
+    <span class="n">delta_value_20</span> <span class="o">=</span> <span class="n">calc_delta_value</span><span class="p">(</span>
+        <span class="n">simulate</span><span class="p">,</span> <span class="n">ytm_20</span><span class="p">,</span> <span class="n">pay_dates_20</span><span class="p">,</span> <span class="n">payments_20</span><span class="p">,</span> <span class="n">bond_value_20</span><span class="p">,</span>
+        <span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">,</span> <span class="n">random</span><span class="o">=</span><span class="n">random</span><span class="p">)</span>
+
+    <span class="c1"># 30-Year Bond (Fixed &quot;bond_value_30bond_value_10&quot; typo here)</span>
+    <span class="n">delta_value_30</span> <span class="o">=</span> <span class="n">calc_delta_value</span><span class="p">(</span>
+        <span class="n">simulate</span><span class="p">,</span> <span class="n">ytm_30</span><span class="p">,</span> <span class="n">pay_dates_30</span><span class="p">,</span> <span class="n">payments_30</span><span class="p">,</span> <span class="n">bond_value_30</span><span class="p">,</span>
+        <span class="n">shape</span><span class="o">=</span><span class="n">shape</span><span class="p">,</span> <span class="n">scale</span><span class="o">=</span><span class="n">scale</span><span class="p">,</span> <span class="n">random</span><span class="o">=</span><span class="n">random</span><span class="p">)</span>
+
+    <span class="c1"># trade profit 30 vs 20</span>
+    <span class="n">trade_30_20_profit</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span>
+      <span class="n">delta_value_30</span> <span class="o">-</span> <span class="p">(</span><span class="n">hedge_ratio_30_20</span> <span class="o">*</span> <span class="n">delta_value_20</span><span class="p">))</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+    <span class="c1"># trade profit 30s vs 10s</span>
+    <span class="n">trade_30_10_profit</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span>
+      <span class="n">delta_value_30</span> <span class="o">-</span> <span class="p">(</span><span class="n">hedge_ratio_30_10</span> <span class="o">*</span> <span class="n">delta_value_10</span><span class="p">))</span><span class="o">.</span><span class="n">round</span><span class="p">(</span><span class="mi">3</span><span class="p">)</span>
+
+    <span class="c1"># summary statistics</span>
+    <span class="n">convexity_30_20</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">=</span> <span class="n">trade_30_20_profit</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+    <span class="n">convexity_30_10</span><span class="p">[</span><span class="n">column</span><span class="p">]</span> <span class="o">=</span> <span class="n">trade_30_10_profit</span><span class="o">.</span><span class="n">describe</span><span class="p">()</span>
+
+  <span class="k">return</span> <span class="n">convexity_30_20</span><span class="p">,</span><span class="n">convexity_30_10</span><span class="p">,</span><span class="n">trade_30_20_profit</span><span class="p">,</span><span class="n">trade_30_10_profit</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="calculate-results-for-parallel-shift-in-yields-to-maturity">
+<h2>Calculate results for parallel shift in yields to maturity<a class="headerlink" href="#calculate-results-for-parallel-shift-in-yields-to-maturity" title="Link to this heading">#</a></h2>
+<p>Default values are sufficient. Function returns DataFrame of descriptive statistics for both trades. Results for trade profits (trade_30_20_profit,trade_30_10_profit) are the last iteration and that is for the greatest uncertainty.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">parallel_tuple</span><span class="o">=</span><span class="n">calc_convexity_trade</span><span class="p">()</span>
+
+<span class="c1"># DataFrames for both trades</span>
+<span class="n">parallel_30_20</span><span class="o">=</span><span class="n">parallel_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">parallel_30_10</span><span class="o">=</span><span class="n">parallel_tuple</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># profit for both trades</span>
+<span class="n">parallel_trade_30_20</span><span class="o">=</span><span class="n">parallel_tuple</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">parallel_trade_30_10</span><span class="o">=</span><span class="n">parallel_tuple</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="calculate-results-for-non-parallel-shift-in-yields-to-maturity">
+<h2>Calculate results for non-parallel shift in yields to maturity<a class="headerlink" href="#calculate-results-for-non-parallel-shift-in-yields-to-maturity" title="Link to this heading">#</a></h2>
+<p>Need to assign values for <font color='green'>scale </font> and <font color='green'>random</font>. Function returns DataFrame of descriptive statistics for both trades.
+Results for trade profits (trade_30_20_profit,trade_30_10_profit) are for the greatest uncertainty.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">unparallel_tuple</span><span class="o">=</span><span class="n">calc_convexity_trade</span><span class="p">(</span><span class="n">scale</span><span class="o">=</span><span class="mf">0.25</span><span class="p">,</span><span class="n">random</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+<span class="c1"># DataFrames for both trades</span>
+<span class="n">unparallel_30_20</span><span class="o">=</span><span class="n">unparallel_tuple</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span>
+<span class="n">unparallel_30_10</span><span class="o">=</span><span class="n">unparallel_tuple</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span>
+
+<span class="c1"># profit for both trades</span>
+<span class="n">unparallel_trade_30_20</span><span class="o">=</span><span class="n">unparallel_tuple</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span>
+<span class="n">unparallel_trade_30_10</span><span class="o">=</span><span class="n">unparallel_tuple</span><span class="p">[</span><span class="mi">3</span><span class="p">]</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="combine-both-convexity-trades-as-a-single-dataframe">
+<h2>Combine both convexity trades as a single DataFrame<a class="headerlink" href="#combine-both-convexity-trades-as-a-single-dataframe" title="Link to this heading">#</a></h2>
+<ul class="simple">
+<li><p>Create a multiindex for the columns with Pandas function <font color='green'>MultiIndex.from_tuples</font></p>
+<ul>
+<li><p>Describe long and short position</p></li>
+<li><p>Describe duration and convexity</p></li>
+<li><p>Describe level of uncertainty</p></li>
+</ul>
+</li>
+</ul>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># first level of multiindex columns is Trade</span>
+<span class="n">positions</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Long Thirty Short Twenty Trade&#39;</span><span class="p">,</span><span class="s1">&#39;Long Thirty Short Ten Trade&#39;</span><span class="p">]</span>
+<span class="c1"># second level of multiindex columns is Statistics</span>
+<span class="n">stats</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Duration = 0 &amp; Convexity = 98.07&#39;</span><span class="p">,</span><span class="s1">&#39;Duration = 0 &amp; Convexity = 219.12&#39;</span><span class="p">]</span>
+<span class="c1"># third level of multiindex columns is Level of Uncertainty</span>
+<span class="n">uncertainty_levels</span> <span class="o">=</span> <span class="p">[</span><span class="s1">&#39;Least&#39;</span><span class="p">,</span> <span class="s1">&#39;Moderate&#39;</span><span class="p">,</span> <span class="s1">&#39;Greatest&#39;</span><span class="p">]</span>
+<span class="c1"># define tuples</span>
+<span class="n">tuples</span><span class="o">=</span><span class="p">[(</span><span class="n">position</span><span class="p">,</span><span class="n">stat</span><span class="p">,</span><span class="n">uncertainty_level</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">position</span><span class="p">,</span><span class="n">stat</span> <span class="ow">in</span> <span class="nb">zip</span><span class="p">(</span><span class="n">positions</span><span class="p">,</span><span class="n">stats</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">uncertainty_level</span> <span class="ow">in</span> <span class="n">uncertainty_levels</span><span class="p">]</span>
+<span class="c1"># Use from_tuples instead of from_arrays</span>
+<span class="n">columns</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">MultiIndex</span><span class="o">.</span><span class="n">from_tuples</span><span class="p">(</span><span class="n">tuples</span><span class="p">,</span>
+                                    <span class="n">names</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;Trade&#39;</span><span class="p">,</span><span class="s1">&#39;Statistics&#39;</span><span class="p">,</span><span class="s1">&#39;Level of Uncertainty&#39;</span><span class="p">])</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="concatenate-the-convexity-trade-statistics-for-the-parallel-change-in-yields-to-maturity">
+<h2>Concatenate the convexity trade statistics for the parallel change in yields to maturity<a class="headerlink" href="#concatenate-the-convexity-trade-statistics-for-the-parallel-change-in-yields-to-maturity" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># make a single DataFrame</span>
+<span class="n">parallel_convexity_trade</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">parallel_30_20</span><span class="p">,</span>
+                                     <span class="n">parallel_30_10</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># assign column names</span>
+<span class="n">parallel_convexity_trade</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="n">columns</span>
+<span class="n">parallel_convexity_trade</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;count&#39;</span><span class="p">],</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">parallel_convexity_trade</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_caption</span><span class="p">(</span>
+    <span class="s2">&quot;&lt;b&gt;Parallel Delta Yields To Maturity  $ Profit Per $100 Par Value (100,000 simulations)&lt;/b&gt;&quot;</span><span class="p">)</span><span class="o">.</span>
+<span class="n">set_table_styles</span><span class="p">([{</span>
+    <span class="s1">&#39;selector&#39;</span><span class="p">:</span> <span class="s1">&#39;caption&#39;</span><span class="p">,</span><span class="s1">&#39;props&#39;</span><span class="p">:[(</span><span class="s1">&#39;color&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">),(</span><span class="s1">&#39;font-size&#39;</span><span class="p">,</span> <span class="s1">&#39;16px&#39;</span><span class="p">)]}]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+#T_d28fe_ caption {
+  color: red;
+  font-size: 16px;
+}
+</style>
+<table id="T_d28fe_">
+  <caption><b>Parallel Delta Yields To Maturity  $ Profit Per $100 Par Value (100,000 simulations)</b></caption>
+  <thead>
+    <tr>
+      <th class="index_name level0" >Trade</th>
+      <th class="col_heading level0 col0" colspan="3">Long Thirty Short Twenty Trade</th>
+      <th class="col_heading level0 col3" colspan="3">Long Thirty Short Ten Trade</th>
+    </tr>
+    <tr>
+      <th class="index_name level1" >Statistics</th>
+      <th class="col_heading level1 col0" colspan="3">Duration = 0 & Convexity = 98.07</th>
+      <th class="col_heading level1 col3" colspan="3">Duration = 0 & Convexity = 219.12</th>
+    </tr>
+    <tr>
+      <th class="index_name level2" >Level of Uncertainty</th>
+      <th class="col_heading level2 col0" >Least</th>
+      <th class="col_heading level2 col1" >Moderate</th>
+      <th class="col_heading level2 col2" >Greatest</th>
+      <th class="col_heading level2 col3" >Least</th>
+      <th class="col_heading level2 col4" >Moderate</th>
+      <th class="col_heading level2 col5" >Greatest</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_d28fe_level0_row0" class="row_heading level0 row0" >mean</th>
+      <td id="T_d28fe_row0_col0" class="data row0 col0" >0.023508</td>
+      <td id="T_d28fe_row0_col1" class="data row0 col1" >0.099228</td>
+      <td id="T_d28fe_row0_col2" class="data row0 col2" >0.165212</td>
+      <td id="T_d28fe_row0_col3" class="data row0 col3" >0.052498</td>
+      <td id="T_d28fe_row0_col4" class="data row0 col4" >0.221179</td>
+      <td id="T_d28fe_row0_col5" class="data row0 col5" >0.367930</td>
+    </tr>
+    <tr>
+      <th id="T_d28fe_level0_row1" class="row_heading level0 row1" >std</th>
+      <td id="T_d28fe_row1_col0" class="data row1 col0" >0.031328</td>
+      <td id="T_d28fe_row1_col1" class="data row1 col1" >0.107548</td>
+      <td id="T_d28fe_row1_col2" class="data row1 col2" >0.151400</td>
+      <td id="T_d28fe_row1_col3" class="data row1 col3" >0.069717</td>
+      <td id="T_d28fe_row1_col4" class="data row1 col4" >0.238078</td>
+      <td id="T_d28fe_row1_col5" class="data row1 col5" >0.333950</td>
+    </tr>
+    <tr>
+      <th id="T_d28fe_level0_row2" class="row_heading level0 row2" >min</th>
+      <td id="T_d28fe_row2_col0" class="data row2 col0" >0.000000</td>
+      <td id="T_d28fe_row2_col1" class="data row2 col1" >0.000000</td>
+      <td id="T_d28fe_row2_col2" class="data row2 col2" >0.000000</td>
+      <td id="T_d28fe_row2_col3" class="data row2 col3" >0.000000</td>
+      <td id="T_d28fe_row2_col4" class="data row2 col4" >0.000000</td>
+      <td id="T_d28fe_row2_col5" class="data row2 col5" >0.000000</td>
+    </tr>
+    <tr>
+      <th id="T_d28fe_level0_row3" class="row_heading level0 row3" >25%</th>
+      <td id="T_d28fe_row3_col0" class="data row3 col0" >0.003000</td>
+      <td id="T_d28fe_row3_col1" class="data row3 col1" >0.014000</td>
+      <td id="T_d28fe_row3_col2" class="data row3 col2" >0.030000</td>
+      <td id="T_d28fe_row3_col3" class="data row3 col3" >0.006000</td>
+      <td id="T_d28fe_row3_col4" class="data row3 col4" >0.032000</td>
+      <td id="T_d28fe_row3_col5" class="data row3 col5" >0.068000</td>
+    </tr>
+    <tr>
+      <th id="T_d28fe_level0_row4" class="row_heading level0 row4" >50%</th>
+      <td id="T_d28fe_row4_col0" class="data row4 col0" >0.011000</td>
+      <td id="T_d28fe_row4_col1" class="data row4 col1" >0.060000</td>
+      <td id="T_d28fe_row4_col2" class="data row4 col2" >0.122000</td>
+      <td id="T_d28fe_row4_col3" class="data row4 col3" >0.025000</td>
+      <td id="T_d28fe_row4_col4" class="data row4 col4" >0.134000</td>
+      <td id="T_d28fe_row4_col5" class="data row4 col5" >0.274000</td>
+    </tr>
+    <tr>
+      <th id="T_d28fe_level0_row5" class="row_heading level0 row5" >75%</th>
+      <td id="T_d28fe_row5_col0" class="data row5 col0" >0.032000</td>
+      <td id="T_d28fe_row5_col1" class="data row5 col1" >0.153000</td>
+      <td id="T_d28fe_row5_col2" class="data row5 col2" >0.274000</td>
+      <td id="T_d28fe_row5_col3" class="data row5 col3" >0.072000</td>
+      <td id="T_d28fe_row5_col4" class="data row5 col4" >0.342000</td>
+      <td id="T_d28fe_row5_col5" class="data row5 col5" >0.615000</td>
+    </tr>
+    <tr>
+      <th id="T_d28fe_level0_row6" class="row_heading level0 row6" >max</th>
+      <td id="T_d28fe_row6_col0" class="data row6 col0" >0.371000</td>
+      <td id="T_d28fe_row6_col1" class="data row6 col1" >0.574000</td>
+      <td id="T_d28fe_row6_col2" class="data row6 col2" >0.577000</td>
+      <td id="T_d28fe_row6_col3" class="data row6 col3" >0.804000</td>
+      <td id="T_d28fe_row6_col4" class="data row6 col4" >1.236000</td>
+      <td id="T_d28fe_row6_col5" class="data row6 col5" >1.243000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="concatenate-the-convexity-trade-statistics-for-the-non-parallel-change-in-yields-to-maturity">
+<h2>Concatenate the convexity trade statistics for the non-parallel change in yields to maturity<a class="headerlink" href="#concatenate-the-convexity-trade-statistics-for-the-non-parallel-change-in-yields-to-maturity" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># make a single DataFrame</span>
+<span class="n">unparallel_convexity_trade</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">concat</span><span class="p">([</span><span class="n">unparallel_30_20</span><span class="p">,</span>
+                                     <span class="n">unparallel_30_10</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="c1"># set value for scale</span>
+<span class="n">scale</span><span class="o">=</span><span class="mf">0.25</span>
+
+<span class="c1"># assign column names</span>
+<span class="n">unparallel_convexity_trade</span><span class="o">.</span><span class="n">columns</span><span class="o">=</span><span class="n">columns</span>
+<span class="n">unparallel_convexity_trade</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;count&#39;</span><span class="p">],</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">display</span><span class="p">(</span><span class="n">unparallel_convexity_trade</span><span class="o">.</span><span class="n">style</span><span class="o">.</span><span class="n">set_caption</span><span class="p">(</span>
+ <span class="s2">&quot;&lt;b&gt;Non-Parallel Delta Yields To Maturity $ Profit Per $100 Par Value (Scale: &quot;</span>\
+ <span class="o">+</span><span class="nb">str</span><span class="p">(</span><span class="n">scale</span><span class="p">)</span><span class="o">+</span><span class="s2">&quot;, 100,000 simulations)&lt;/b&gt;&quot;</span><span class="p">)</span><span class="o">.</span>
+<span class="n">set_table_styles</span><span class="p">([{</span>
+    <span class="s1">&#39;selector&#39;</span><span class="p">:</span> <span class="s1">&#39;caption&#39;</span><span class="p">,</span><span class="s1">&#39;props&#39;</span><span class="p">:[(</span><span class="s1">&#39;color&#39;</span><span class="p">,</span> <span class="s1">&#39;red&#39;</span><span class="p">),(</span><span class="s1">&#39;font-size&#39;</span><span class="p">,</span> <span class="s1">&#39;16px&#39;</span><span class="p">)]}]))</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_html"><style type="text/css">
+#T_fbbf8_ caption {
+  color: red;
+  font-size: 16px;
+}
+</style>
+<table id="T_fbbf8_">
+  <caption><b>Non-Parallel Delta Yields To Maturity $ Profit Per $100 Par Value (Scale: 0.25, 100,000 simulations)</b></caption>
+  <thead>
+    <tr>
+      <th class="index_name level0" >Trade</th>
+      <th class="col_heading level0 col0" colspan="3">Long Thirty Short Twenty Trade</th>
+      <th class="col_heading level0 col3" colspan="3">Long Thirty Short Ten Trade</th>
+    </tr>
+    <tr>
+      <th class="index_name level1" >Statistics</th>
+      <th class="col_heading level1 col0" colspan="3">Duration = 0 & Convexity = 98.07</th>
+      <th class="col_heading level1 col3" colspan="3">Duration = 0 & Convexity = 219.12</th>
+    </tr>
+    <tr>
+      <th class="index_name level2" >Level of Uncertainty</th>
+      <th class="col_heading level2 col0" >Least</th>
+      <th class="col_heading level2 col1" >Moderate</th>
+      <th class="col_heading level2 col2" >Greatest</th>
+      <th class="col_heading level2 col3" >Least</th>
+      <th class="col_heading level2 col4" >Moderate</th>
+      <th class="col_heading level2 col5" >Greatest</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <th id="T_fbbf8_level0_row0" class="row_heading level0 row0" >mean</th>
+      <td id="T_fbbf8_row0_col0" class="data row0 col0" >0.022569</td>
+      <td id="T_fbbf8_row0_col1" class="data row0 col1" >0.083490</td>
+      <td id="T_fbbf8_row0_col2" class="data row0 col2" >0.172671</td>
+      <td id="T_fbbf8_row0_col3" class="data row0 col3" >0.055667</td>
+      <td id="T_fbbf8_row0_col4" class="data row0 col4" >0.222993</td>
+      <td id="T_fbbf8_row0_col5" class="data row0 col5" >0.390638</td>
+    </tr>
+    <tr>
+      <th id="T_fbbf8_level0_row1" class="row_heading level0 row1" >std</th>
+      <td id="T_fbbf8_row1_col0" class="data row1 col0" >1.238147</td>
+      <td id="T_fbbf8_row1_col1" class="data row1 col1" >2.563743</td>
+      <td id="T_fbbf8_row1_col2" class="data row1 col2" >3.319102</td>
+      <td id="T_fbbf8_row1_col3" class="data row1 col3" >1.243998</td>
+      <td id="T_fbbf8_row1_col4" class="data row1 col4" >2.564006</td>
+      <td id="T_fbbf8_row1_col5" class="data row1 col5" >3.318571</td>
+    </tr>
+    <tr>
+      <th id="T_fbbf8_level0_row2" class="row_heading level0 row2" >min</th>
+      <td id="T_fbbf8_row2_col0" class="data row2 col0" >-4.578000</td>
+      <td id="T_fbbf8_row2_col1" class="data row2 col1" >-8.196000</td>
+      <td id="T_fbbf8_row2_col2" class="data row2 col2" >-9.052000</td>
+      <td id="T_fbbf8_row2_col3" class="data row2 col3" >-4.814000</td>
+      <td id="T_fbbf8_row2_col4" class="data row2 col4" >-7.633000</td>
+      <td id="T_fbbf8_row2_col5" class="data row2 col5" >-8.318000</td>
+    </tr>
+    <tr>
+      <th id="T_fbbf8_level0_row3" class="row_heading level0 row3" >25%</th>
+      <td id="T_fbbf8_row3_col0" class="data row3 col0" >-0.817250</td>
+      <td id="T_fbbf8_row3_col1" class="data row3 col1" >-1.716000</td>
+      <td id="T_fbbf8_row3_col2" class="data row3 col2" >-2.176250</td>
+      <td id="T_fbbf8_row3_col3" class="data row3 col3" >-0.794000</td>
+      <td id="T_fbbf8_row3_col4" class="data row3 col4" >-1.580000</td>
+      <td id="T_fbbf8_row3_col5" class="data row3 col5" >-1.964000</td>
+    </tr>
+    <tr>
+      <th id="T_fbbf8_level0_row4" class="row_heading level0 row4" >50%</th>
+      <td id="T_fbbf8_row4_col0" class="data row4 col0" >0.024000</td>
+      <td id="T_fbbf8_row4_col1" class="data row4 col1" >0.078000</td>
+      <td id="T_fbbf8_row4_col2" class="data row4 col2" >0.174000</td>
+      <td id="T_fbbf8_row4_col3" class="data row4 col3" >0.050000</td>
+      <td id="T_fbbf8_row4_col4" class="data row4 col4" >0.212000</td>
+      <td id="T_fbbf8_row4_col5" class="data row4 col5" >0.368000</td>
+    </tr>
+    <tr>
+      <th id="T_fbbf8_level0_row5" class="row_heading level0 row5" >75%</th>
+      <td id="T_fbbf8_row5_col0" class="data row5 col0" >0.864000</td>
+      <td id="T_fbbf8_row5_col1" class="data row5 col1" >1.869000</td>
+      <td id="T_fbbf8_row5_col2" class="data row5 col2" >2.519000</td>
+      <td id="T_fbbf8_row5_col3" class="data row5 col3" >0.907000</td>
+      <td id="T_fbbf8_row5_col4" class="data row5 col4" >2.018000</td>
+      <td id="T_fbbf8_row5_col5" class="data row5 col5" >2.723000</td>
+    </tr>
+    <tr>
+      <th id="T_fbbf8_level0_row6" class="row_heading level0 row6" >max</th>
+      <td id="T_fbbf8_row6_col0" class="data row6 col0" >5.462000</td>
+      <td id="T_fbbf8_row6_col1" class="data row6 col1" >9.169000</td>
+      <td id="T_fbbf8_row6_col2" class="data row6 col2" >10.118000</td>
+      <td id="T_fbbf8_row6_col3" class="data row6 col3" >5.215000</td>
+      <td id="T_fbbf8_row6_col4" class="data row6 col4" >9.013000</td>
+      <td id="T_fbbf8_row6_col5" class="data row6 col5" >10.679000</td>
+    </tr>
+  </tbody>
+</table>
+</div></div>
+</div>
+</section>
+<section id="the-comparison-of-results">
+<h2>The comparison of results<a class="headerlink" href="#the-comparison-of-results" title="Link to this heading">#</a></h2>
+<p>The summary statistics highlight striking differences between parallel and non-parallel simulations. Although non-parallel simulations show a slightly higher mean profit, they exhibit significantly greater volatility.</p>
+<p>A key distinction is seen in minimum profits: parallel simulations all resulted in zero profit, whereas non-parallel simulations saw minimums ranging from -$4.57 to -$9.02. Conversely, maximum values show the reverse pattern, with parallel simulations peaking between $0.33 and $1.24, compared to the much higher range of $4.78 to $10.42 for non-parallel simulations.</p>
+<p>The primary conclusion is that caution is required when using duration and convexity to forecast relative changes in bond prices. Those forecasts are only reliable when there are small, parallel shifts in the bonds’ yields to maturity.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># % of losses long 30 short 10</span>
+<span class="n">series</span><span class="o">=</span><span class="n">unparallel_trade_30_10</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>
+<span class="n">series</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">mask</span><span class="o">=</span><span class="n">series</span><span class="o">&gt;</span><span class="mi">0</span>
+<span class="n">display</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;% Of Losses long 30 short 10: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">mask</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s1">%&#39;</span><span class="p">)</span>
+<span class="c1"># % of losses long 30 short 20</span>
+<span class="n">series</span><span class="o">=</span><span class="n">unparallel_trade_30_20</span><span class="o">.</span><span class="n">sort_values</span><span class="p">()</span>
+<span class="n">series</span><span class="o">.</span><span class="n">reset_index</span><span class="p">(</span><span class="n">drop</span><span class="o">=</span><span class="kc">True</span><span class="p">,</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+<span class="n">mask</span><span class="o">=</span><span class="n">series</span><span class="o">&gt;</span><span class="mi">0</span>
+<span class="n">display</span><span class="p">(</span><span class="sa">f</span><span class="s1">&#39;% Of Losses long 30 short 20: </span><span class="si">{</span><span class="nb">round</span><span class="p">(</span><span class="n">mask</span><span class="o">.</span><span class="n">idxmax</span><span class="p">()</span><span class="o">/</span><span class="mi">1000</span><span class="p">,</span><span class="mi">3</span><span class="p">)</span><span class="si">}</span><span class="s1">%&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;% Of Losses long 30 short 10: 45.541%&#39;
+</pre></div>
+</div>
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;% Of Losses long 30 short 20: 47.883%&#39;
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="graph-results-with-one-y-axis-function">
+<h2>Graph results with one_y_axis function<a class="headerlink" href="#graph-results-with-one-y-axis-function" title="Link to this heading">#</a></h2>
+</section>
+<section id="plotting-the-results">
+<h2>Plotting the results<a class="headerlink" href="#plotting-the-results" title="Link to this heading">#</a></h2>
+<p>The trade profits for the highest uncertainty are visualized through a graph of the results. To avoid code duplication, the <font color='green'>plot_trade_results</font> function is used.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="k">def</span><span class="w"> </span><span class="nf">plot_trade_results</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="n">title</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+  <span class="n">xaxis</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">index</span>
+  <span class="n">xlabel</span><span class="o">=</span><span class="s1">&#39;Percentage Changes In Yield To Maturity&#39;</span>
+  <span class="n">ylabel</span><span class="o">=</span><span class="s1">&#39;Gross Profit From Trade ($)&#39;</span>
+  <span class="n">series</span><span class="o">=</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span>
+  <span class="n">max_series</span><span class="o">=</span><span class="p">[</span><span class="nb">max</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">column</span><span class="p">])</span> <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">series</span><span class="p">]</span>
+  <span class="k">if</span> <span class="nb">max</span><span class="p">(</span><span class="n">max_series</span><span class="p">)</span><span class="o">&gt;</span><span class="mi">0</span><span class="p">:</span>
+    <span class="n">upper</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">max_series</span><span class="p">)</span><span class="o">*</span><span class="mf">1.5</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="n">upper</span><span class="o">=</span><span class="nb">max</span><span class="p">(</span><span class="n">max_series</span><span class="p">)</span><span class="o">*</span><span class="mf">0.7</span>
+  <span class="n">min_series</span><span class="o">=</span><span class="p">[</span><span class="nb">min</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">column</span><span class="p">])</span> <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">series</span><span class="p">]</span>
+  <span class="k">if</span> <span class="nb">min</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">min</span><span class="p">(</span><span class="n">min_series</span><span class="p">))</span><span class="o">&gt;=</span><span class="mi">0</span><span class="p">:</span>
+    <span class="n">lower</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span><span class="nb">min</span><span class="p">(</span><span class="n">min_series</span><span class="p">)</span><span class="o">*</span><span class="mf">0.7</span><span class="p">)</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="n">lower</span><span class="o">=</span><span class="nb">min</span><span class="p">(</span><span class="n">min_series</span><span class="p">)</span><span class="o">*</span><span class="mf">1.5</span>
+  <span class="n">markers</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;&#39;</span><span class="p">]</span><span class="o">*</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">)</span>
+  <span class="n">ylim</span><span class="o">=</span><span class="p">[</span><span class="n">lower</span><span class="p">,</span><span class="n">upper</span><span class="p">]</span>
+  <span class="n">size</span><span class="o">=</span><span class="p">(</span><span class="mi">7</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+  <span class="k">if</span> <span class="n">color</span><span class="p">:</span>
+    <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="n">color</span><span class="p">]</span>
+  <span class="k">else</span><span class="p">:</span>
+    <span class="n">list_colors</span><span class="o">=</span><span class="p">[</span><span class="s1">&#39;green&#39;</span><span class="p">,</span><span class="s1">&#39;blue&#39;</span><span class="p">,</span><span class="s1">&#39;yellow&#39;</span><span class="p">,</span><span class="s1">&#39;green&#39;</span><span class="p">,</span><span class="s1">&#39;black&#39;</span><span class="p">]</span>
+    <span class="n">colors</span><span class="o">=</span><span class="p">[</span><span class="n">list_colors</span><span class="p">[</span><span class="n">i</span><span class="p">]</span> <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">columns</span><span class="p">))]</span>
+  <span class="n">save_config</span><span class="o">=</span><span class="p">{}</span>
+  <span class="n">ydata</span><span class="o">=</span><span class="p">[</span><span class="n">pd</span><span class="o">.</span><span class="n">Series</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="n">column</span><span class="p">])</span> <span class="k">for</span> <span class="n">column</span> <span class="ow">in</span> <span class="n">series</span><span class="p">]</span>
+  <span class="n">one_y_axis</span><span class="p">(</span><span class="n">xaxis</span><span class="p">,</span><span class="n">ydata</span><span class="p">,</span><span class="n">title</span><span class="p">,</span><span class="n">series</span><span class="p">,</span><span class="n">xlabel</span><span class="p">,</span><span class="n">ylabel</span><span class="p">,</span><span class="n">markers</span><span class="p">,</span><span class="n">size</span><span class="p">,</span><span class="n">ylim</span><span class="p">,</span>
+          <span class="n">save_config</span><span class="o">=</span><span class="n">save_config</span><span class="p">,</span><span class="n">colors</span><span class="o">=</span><span class="n">colors</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="graph-the-convexity-trades">
+<h2>Graph the convexity trades<a class="headerlink" href="#graph-the-convexity-trades" title="Link to this heading">#</a></h2>
+<p>To simplify the plots, the trade profits are indexed by the parallel changes in yield to maturity. This is achieved by creating a DataFrame from the trade profits with an index of the parallel changes in yield to maturity. Then, the original DataFrame is sorted by these index values using the Pandas <font color='green'>sort_index</font> method with the <font color='green'>inplace</font> parameter set to True.</p>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="c1"># last value assigned to trade profits are for the greatest uncertainty</span>
+<span class="c1"># need a one-dimensional array for an index so greatest is converted with flatten</span>
+<span class="n">df</span><span class="o">=</span><span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">({</span><span class="s1">&#39;Parallel Dollar Return 30_20&#39;</span><span class="p">:</span><span class="n">parallel_trade_30_20</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+                 <span class="s1">&#39;Parallel Dollar Return 30_10&#39;</span><span class="p">:</span><span class="n">parallel_trade_30_10</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+                  <span class="s1">&#39;Non-Parallel Dollar Return 30_20&#39;</span><span class="p">:</span><span class="n">unparallel_trade_30_20</span><span class="o">.</span><span class="n">values</span><span class="p">,</span>
+                  <span class="s1">&#39;Non-Parallel Dollar Return 30_10&#39;</span><span class="p">:</span><span class="n">unparallel_trade_30_10</span><span class="o">.</span><span class="n">values</span><span class="p">},</span>
+                   <span class="n">index</span><span class="o">=</span><span class="n">simulated_uncertainty</span><span class="p">[</span><span class="s1">&#39;Greatest&#39;</span><span class="p">]</span><span class="o">.</span><span class="n">flatten</span><span class="p">())</span>
+
+<span class="c1"># all columns are sorted by value of change in ytm</span>
+<span class="n">df</span><span class="o">.</span><span class="n">sort_index</span><span class="p">(</span><span class="n">inplace</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+</div>
+</section>
+<section id="graph-the-profits-from-the-parallel-changes">
+<h2>Graph the profits from the parallel changes<a class="headerlink" href="#graph-the-profits-from-the-parallel-changes" title="Link to this heading">#</a></h2>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Non-Parallel Dollar Return 30_20&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;Non-Parallel Dollar Return 30_10&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plot_trade_results</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="s1">&#39;Parallel Convexity Trade&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/ff02a9a4a34228f9394780b0630ed802cc0f5a1e190d853ef1eb29821809bcc2.png" src="_images/ff02a9a4a34228f9394780b0630ed802cc0f5a1e190d853ef1eb29821809bcc2.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Parallel Dollar Return 30_20&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;Parallel Dollar Return 30_10&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;Non-Parallel Dollar Return 30_20&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plot_trade_results</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="s1">&#39;Non-Parallel Convexity Trade&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/c81a44999e03534a2d911e2edc58072cc26430c4e0c54f95c57b6c297c58c07e.png" src="_images/c81a44999e03534a2d911e2edc58072cc26430c4e0c54f95c57b6c297c58c07e.png" />
+</div>
+</div>
+<div class="cell docutils container">
+<div class="cell_input docutils container">
+<div class="highlight-ipython3 notranslate"><div class="highlight"><pre><span></span><span class="n">data</span><span class="o">=</span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">([</span><span class="s1">&#39;Parallel Dollar Return 30_20&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;Parallel Dollar Return 30_10&#39;</span><span class="p">,</span>
+              <span class="s1">&#39;Non-Parallel Dollar Return 30_10&#39;</span><span class="p">],</span><span class="n">axis</span><span class="o">=</span><span class="mi">1</span><span class="p">)</span>
+<span class="n">plot_trade_results</span><span class="p">(</span><span class="n">data</span><span class="p">,</span><span class="s1">&#39;Non-Parallel Convexity Trade&#39;</span><span class="p">,</span><span class="n">color</span><span class="o">=</span><span class="s1">&#39;blue&#39;</span><span class="p">)</span>
+</pre></div>
+</div>
+</div>
+<div class="cell_output docutils container">
+<img alt="_images/269cdded1dbcebd13f75b9853b73015e13823539be1738e22a46cfc23d3dca1d.png" src="_images/269cdded1dbcebd13f75b9853b73015e13823539be1738e22a46cfc23d3dca1d.png" />
+</div>
+</div>
+</section>
+<section id="summarizing">
+<h2><em><strong>Summarizing</strong></em><a class="headerlink" href="#summarizing" title="Link to this heading">#</a></h2>
+<p>Volatility trades are always at the forefront of traders’ minds.  Convexity is understood to be synonymous with volatility.  An important concept that affects the pricing of financial instruments and motivates investment decisions.  The application, however,  requires careful thought.  Simple strategies are likely to produce unexpected results.  Here we have illustrated changes in the shape and slope of the term structure.  Changes that can significantly alter the risk-return trade-off of investment strategies that are meant to benefit from volatility or its close relative convexity.</p>
+</section>
+<section id="exercise-graph-gross-profits-for-non-parallel-convexity-trades-with-scale-factor-0-05">
+<h2><font color='green'>Exercise: Graph gross profits for non-parallel convexity trades with scale factor = 0.05</font><a class="headerlink" href="#exercise-graph-gross-profits-for-non-parallel-convexity-trades-with-scale-factor-0-05" title="Link to this heading">#</a></h2>
+<p><strong>Settlement date is February 3, 2026</strong></p>
+<p>Show results for two trades:</p>
+<ul class="simple">
+<li><p>Trade 1: Long 30-Year, Short 20-Year</p></li>
+<li><p>Trade 2: Long 30-Year, Short 10-Year</p></li>
+</ul>
+<br>
+<p>see <a class="reference external" href="https://colab.research.google.com/drive/1WL30MXvTfn3tTNQaaas2bmHn3G5E3lK4#scrollTo=-VjufwTN0RUr">Chapter Eight Hints: Graph gross profits for convexity trades with scale factor = 0.05</a>, and check the <a class="reference external" href="https://colab.research.google.com/drive/1jULdrPyul6Xs5Zrm4ysXezNNuJG7K6l6#scrollTo=kfPak5yXNMEq">expected results here</a>.</p>
+</section>
+<section id="take-a-deeper-dive-with-gemini">
+<h2><font color='green'>Take a deeper dive with Gemini</font><a class="headerlink" href="#take-a-deeper-dive-with-gemini" title="Link to this heading">#</a></h2>
+<p>Some suggestions to get you started.</p>
+<ol class="arabic simple">
+<li><p>What are the risks and returns of a bond convexity trade?</p></li>
+<li><p>How long can a bond short position be held and what are the costs?</p></li>
+<li><p>What is the best type of bond to short for a convexity trade?</p></li>
+</ol>
+<p><a class="reference external" href="https://gemini.google.com">Here is the link where you can copy and paste the questions</a></p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "patrickjhess/Vol-3-Chap-8",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Changes_In_Par_Yields_Between_1993_And_2025.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Volatility and Corrleation of Par Yields</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Chapter_Eight_Summary.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title"><em><strong>Summarizing Convexity and Interest Rate Risk</strong></em></p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#preparing-the-notebook">Preparing the notebook</a><ul class="nav section-nav flex-column">
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#importing-libraries-modules-and-functions">Importing libraries, modules, and functions</a></li>
+<li class="toc-h3 nav-item toc-entry"><a class="reference internal nav-link" href="#adding-a-custom-module-and-importing-functions">Adding a custom module and importing functions</a></li>
+</ul>
+</li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#using-par-yield-data-to-demonstrate-convexity">Using par yield data to demonstrate convexity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#create-a-dataframe-of-par-yields-maturities-six-or-more-months-for-february-3-rd-2026">Create a DataFrame of par yields maturities six or more months for February 3<span class="math notranslate nohighlight">\(^{rd}\)</span> 2026.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-the-convexity-and-duration-with-par-yields">Calculate the convexity and duration with par yields</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-relation-between-duration-and-convexity">The relation between duration and convexity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#two-hypothetical-long-convexity-zero-duration-trades">Two hypothetical long convexity zero duration trades</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-preliminary-data-for-ten-twenty-and-thirty-year-bonds-selling-for-par-yield">Get preliminary data for ten, twenty, and thirty year bonds selling for par yield.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#get-bond-values-for-the-ten-twenty-and-thirty-year-bonds">Get bond values for the ten, twenty, and thirty year bonds.</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-the-simulated-convexity-trade-returns">Calculating the simulated convexity trade returns</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-changes-in-yields-to-maturity">Parallel changes in yields to maturity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#non-parallel-changes-in-yields-to-maturity">Non-parallel changes in yields to maturity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#parallel-changes-are-used-in-the-parallel-and-non-parallel-simulations">Parallel changes are used in the parallel and non-parallel simulations</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#simulate-changes-in-value-of-the-three-bonds">Simulate changes in value of the three bonds</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#function-calc-convexity-trade">Function <font color="green">calc_convexity_trade</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-results-for-parallel-shift-in-yields-to-maturity">Calculate results for parallel shift in yields to maturity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculate-results-for-non-parallel-shift-in-yields-to-maturity">Calculate results for non-parallel shift in yields to maturity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#combine-both-convexity-trades-as-a-single-dataframe">Combine both convexity trades as a single DataFrame</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concatenate-the-convexity-trade-statistics-for-the-parallel-change-in-yields-to-maturity">Concatenate the convexity trade statistics for the parallel change in yields to maturity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#concatenate-the-convexity-trade-statistics-for-the-non-parallel-change-in-yields-to-maturity">Concatenate the convexity trade statistics for the non-parallel change in yields to maturity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#the-comparison-of-results">The comparison of results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-results-with-one-y-axis-function">Graph results with one_y_axis function</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#plotting-the-results">Plotting the results</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-the-convexity-trades">Graph the convexity trades</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#graph-the-profits-from-the-parallel-changes">Graph the profits from the parallel changes</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#summarizing"><em><strong>Summarizing</strong></em></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#exercise-graph-gross-profits-for-non-parallel-convexity-trades-with-scale-factor-0-05"><font color="green">Exercise: Graph gross profits for non-parallel convexity trades with scale factor = 0.05</font></a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#take-a-deeper-dive-with-gemini"><font color="green">Take a deeper dive with Gemini</font></a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By Financial Python
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2026, Arbitrage Partners.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
