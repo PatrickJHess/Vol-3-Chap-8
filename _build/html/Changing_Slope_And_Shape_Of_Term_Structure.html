@@ -8,7 +8,7 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
 
-    <title>Changing Slope and Shape of Term Structure &#8212; Basic Concepts of Fixed Income: Convexity And Interest Risk Hundred Bonds</title>
+    <title>Changing Slope and Shape of Term Structure &#8212; Basic Concepts of Fixed Income: Convexity And Interest Rate Risk</title>
   
   
   
@@ -32,7 +32,7 @@
     <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=eba8b062" />
     <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
     <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
-    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.8ecb98da25f57f5357bf6f572d296f466b2cfe2517ffebfabe82451661e28f02.css?v=6644e6bb" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
     <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
     <link rel="stylesheet" type="text/css" href="_static/custom.css?v=b47fed4d" />
@@ -155,7 +155,7 @@
   
   
   
-    <p class="title logo__title">Basic Concepts of Fixed Income: Convexity And Interest Risk Hundred Bonds</p>
+    <p class="title logo__title">Basic Concepts of Fixed Income: Convexity And Interest Rate Risk</p>
   
 </a></div>
         <div class="sidebar-primary-item">
@@ -186,6 +186,7 @@
 <p aria-level="2" class="caption" role="heading"><span class="caption-text">Basic Concepts of Fixed Income: Chapter Eight</span></p>
 <ul class="current nav bd-sidenav">
 <li class="toctree-l1 current active has-children"><a class="reference internal" href="Chapter_Eight_Highlights.html"><em><strong>Convexity And Interest Rate Risk</strong></em></a><ul class="current">
+<li class="toctree-l2"><a class="reference internal" href="Define_Convexity.html">What is convexity and why does it matter</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Illustrating_The_Effects_With_Parallel_Shifts_In_Yields_To_Maturity.html">Convexity And Parallel Shifts in Yields to Maturity</a></li>
 <li class="toctree-l2"><a class="reference internal" href="Changes_In_Par_Yields_Between_1993_And_2025.html">Volatility and Corrleation of Par Yields</a></li>
 <li class="toctree-l2 current active"><a class="current reference internal" href="#">Changing Slope and Shape of Term Structure</a></li>
@@ -1508,12 +1509,12 @@ Results for trade profits (trade_30_20_profit,trade_30_10_profit) are for the gr
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
-#T_d28fe_ caption {
+#T_6090e_ caption {
   color: red;
   font-size: 16px;
 }
 </style>
-<table id="T_d28fe_">
+<table id="T_6090e_">
   <caption><b>Parallel Delta Yields To Maturity  $ Profit Per $100 Par Value (100,000 simulations)</b></caption>
   <thead>
     <tr>
@@ -1538,67 +1539,67 @@ Results for trade profits (trade_30_20_profit,trade_30_10_profit) are for the gr
   </thead>
   <tbody>
     <tr>
-      <th id="T_d28fe_level0_row0" class="row_heading level0 row0" >mean</th>
-      <td id="T_d28fe_row0_col0" class="data row0 col0" >0.023508</td>
-      <td id="T_d28fe_row0_col1" class="data row0 col1" >0.099228</td>
-      <td id="T_d28fe_row0_col2" class="data row0 col2" >0.165212</td>
-      <td id="T_d28fe_row0_col3" class="data row0 col3" >0.052498</td>
-      <td id="T_d28fe_row0_col4" class="data row0 col4" >0.221179</td>
-      <td id="T_d28fe_row0_col5" class="data row0 col5" >0.367930</td>
+      <th id="T_6090e_level0_row0" class="row_heading level0 row0" >mean</th>
+      <td id="T_6090e_row0_col0" class="data row0 col0" >0.023419</td>
+      <td id="T_6090e_row0_col1" class="data row0 col1" >0.099271</td>
+      <td id="T_6090e_row0_col2" class="data row0 col2" >0.165577</td>
+      <td id="T_6090e_row0_col3" class="data row0 col3" >0.052293</td>
+      <td id="T_6090e_row0_col4" class="data row0 col4" >0.221311</td>
+      <td id="T_6090e_row0_col5" class="data row0 col5" >0.368769</td>
     </tr>
     <tr>
-      <th id="T_d28fe_level0_row1" class="row_heading level0 row1" >std</th>
-      <td id="T_d28fe_row1_col0" class="data row1 col0" >0.031328</td>
-      <td id="T_d28fe_row1_col1" class="data row1 col1" >0.107548</td>
-      <td id="T_d28fe_row1_col2" class="data row1 col2" >0.151400</td>
-      <td id="T_d28fe_row1_col3" class="data row1 col3" >0.069717</td>
-      <td id="T_d28fe_row1_col4" class="data row1 col4" >0.238078</td>
-      <td id="T_d28fe_row1_col5" class="data row1 col5" >0.333950</td>
+      <th id="T_6090e_level0_row1" class="row_heading level0 row1" >std</th>
+      <td id="T_6090e_row1_col0" class="data row1 col0" >0.031227</td>
+      <td id="T_6090e_row1_col1" class="data row1 col1" >0.107689</td>
+      <td id="T_6090e_row1_col2" class="data row1 col2" >0.150930</td>
+      <td id="T_6090e_row1_col3" class="data row1 col3" >0.069492</td>
+      <td id="T_6090e_row1_col4" class="data row1 col4" >0.238475</td>
+      <td id="T_6090e_row1_col5" class="data row1 col5" >0.332959</td>
     </tr>
     <tr>
-      <th id="T_d28fe_level0_row2" class="row_heading level0 row2" >min</th>
-      <td id="T_d28fe_row2_col0" class="data row2 col0" >0.000000</td>
-      <td id="T_d28fe_row2_col1" class="data row2 col1" >0.000000</td>
-      <td id="T_d28fe_row2_col2" class="data row2 col2" >0.000000</td>
-      <td id="T_d28fe_row2_col3" class="data row2 col3" >0.000000</td>
-      <td id="T_d28fe_row2_col4" class="data row2 col4" >0.000000</td>
-      <td id="T_d28fe_row2_col5" class="data row2 col5" >0.000000</td>
+      <th id="T_6090e_level0_row2" class="row_heading level0 row2" >min</th>
+      <td id="T_6090e_row2_col0" class="data row2 col0" >0.000000</td>
+      <td id="T_6090e_row2_col1" class="data row2 col1" >0.000000</td>
+      <td id="T_6090e_row2_col2" class="data row2 col2" >0.000000</td>
+      <td id="T_6090e_row2_col3" class="data row2 col3" >0.000000</td>
+      <td id="T_6090e_row2_col4" class="data row2 col4" >0.000000</td>
+      <td id="T_6090e_row2_col5" class="data row2 col5" >0.000000</td>
     </tr>
     <tr>
-      <th id="T_d28fe_level0_row3" class="row_heading level0 row3" >25%</th>
-      <td id="T_d28fe_row3_col0" class="data row3 col0" >0.003000</td>
-      <td id="T_d28fe_row3_col1" class="data row3 col1" >0.014000</td>
-      <td id="T_d28fe_row3_col2" class="data row3 col2" >0.030000</td>
-      <td id="T_d28fe_row3_col3" class="data row3 col3" >0.006000</td>
-      <td id="T_d28fe_row3_col4" class="data row3 col4" >0.032000</td>
-      <td id="T_d28fe_row3_col5" class="data row3 col5" >0.068000</td>
+      <th id="T_6090e_level0_row3" class="row_heading level0 row3" >25%</th>
+      <td id="T_6090e_row3_col0" class="data row3 col0" >0.003000</td>
+      <td id="T_6090e_row3_col1" class="data row3 col1" >0.014000</td>
+      <td id="T_6090e_row3_col2" class="data row3 col2" >0.031000</td>
+      <td id="T_6090e_row3_col3" class="data row3 col3" >0.006000</td>
+      <td id="T_6090e_row3_col4" class="data row3 col4" >0.031000</td>
+      <td id="T_6090e_row3_col5" class="data row3 col5" >0.070000</td>
     </tr>
     <tr>
-      <th id="T_d28fe_level0_row4" class="row_heading level0 row4" >50%</th>
-      <td id="T_d28fe_row4_col0" class="data row4 col0" >0.011000</td>
-      <td id="T_d28fe_row4_col1" class="data row4 col1" >0.060000</td>
-      <td id="T_d28fe_row4_col2" class="data row4 col2" >0.122000</td>
-      <td id="T_d28fe_row4_col3" class="data row4 col3" >0.025000</td>
-      <td id="T_d28fe_row4_col4" class="data row4 col4" >0.134000</td>
-      <td id="T_d28fe_row4_col5" class="data row4 col5" >0.274000</td>
+      <th id="T_6090e_level0_row4" class="row_heading level0 row4" >50%</th>
+      <td id="T_6090e_row4_col0" class="data row4 col0" >0.011000</td>
+      <td id="T_6090e_row4_col1" class="data row4 col1" >0.059000</td>
+      <td id="T_6090e_row4_col2" class="data row4 col2" >0.123000</td>
+      <td id="T_6090e_row4_col3" class="data row4 col3" >0.025000</td>
+      <td id="T_6090e_row4_col4" class="data row4 col4" >0.132000</td>
+      <td id="T_6090e_row4_col5" class="data row4 col5" >0.276000</td>
     </tr>
     <tr>
-      <th id="T_d28fe_level0_row5" class="row_heading level0 row5" >75%</th>
-      <td id="T_d28fe_row5_col0" class="data row5 col0" >0.032000</td>
-      <td id="T_d28fe_row5_col1" class="data row5 col1" >0.153000</td>
-      <td id="T_d28fe_row5_col2" class="data row5 col2" >0.274000</td>
-      <td id="T_d28fe_row5_col3" class="data row5 col3" >0.072000</td>
-      <td id="T_d28fe_row5_col4" class="data row5 col4" >0.342000</td>
-      <td id="T_d28fe_row5_col5" class="data row5 col5" >0.615000</td>
+      <th id="T_6090e_level0_row5" class="row_heading level0 row5" >75%</th>
+      <td id="T_6090e_row5_col0" class="data row5 col0" >0.032000</td>
+      <td id="T_6090e_row5_col1" class="data row5 col1" >0.154000</td>
+      <td id="T_6090e_row5_col2" class="data row5 col2" >0.273000</td>
+      <td id="T_6090e_row5_col3" class="data row5 col3" >0.072000</td>
+      <td id="T_6090e_row5_col4" class="data row5 col4" >0.343250</td>
+      <td id="T_6090e_row5_col5" class="data row5 col5" >0.613000</td>
     </tr>
     <tr>
-      <th id="T_d28fe_level0_row6" class="row_heading level0 row6" >max</th>
-      <td id="T_d28fe_row6_col0" class="data row6 col0" >0.371000</td>
-      <td id="T_d28fe_row6_col1" class="data row6 col1" >0.574000</td>
-      <td id="T_d28fe_row6_col2" class="data row6 col2" >0.577000</td>
-      <td id="T_d28fe_row6_col3" class="data row6 col3" >0.804000</td>
-      <td id="T_d28fe_row6_col4" class="data row6 col4" >1.236000</td>
-      <td id="T_d28fe_row6_col5" class="data row6 col5" >1.243000</td>
+      <th id="T_6090e_level0_row6" class="row_heading level0 row6" >max</th>
+      <td id="T_6090e_row6_col0" class="data row6 col0" >0.353000</td>
+      <td id="T_6090e_row6_col1" class="data row6 col1" >0.572000</td>
+      <td id="T_6090e_row6_col2" class="data row6 col2" >0.577000</td>
+      <td id="T_6090e_row6_col3" class="data row6 col3" >0.765000</td>
+      <td id="T_6090e_row6_col4" class="data row6 col4" >1.233000</td>
+      <td id="T_6090e_row6_col5" class="data row6 col5" >1.243000</td>
     </tr>
   </tbody>
 </table>
@@ -1628,12 +1629,12 @@ Results for trade profits (trade_30_20_profit,trade_30_10_profit) are for the gr
 </div>
 <div class="cell_output docutils container">
 <div class="output text_html"><style type="text/css">
-#T_fbbf8_ caption {
+#T_5ca16_ caption {
   color: red;
   font-size: 16px;
 }
 </style>
-<table id="T_fbbf8_">
+<table id="T_5ca16_">
   <caption><b>Non-Parallel Delta Yields To Maturity $ Profit Per $100 Par Value (Scale: 0.25, 100,000 simulations)</b></caption>
   <thead>
     <tr>
@@ -1658,67 +1659,67 @@ Results for trade profits (trade_30_20_profit,trade_30_10_profit) are for the gr
   </thead>
   <tbody>
     <tr>
-      <th id="T_fbbf8_level0_row0" class="row_heading level0 row0" >mean</th>
-      <td id="T_fbbf8_row0_col0" class="data row0 col0" >0.022569</td>
-      <td id="T_fbbf8_row0_col1" class="data row0 col1" >0.083490</td>
-      <td id="T_fbbf8_row0_col2" class="data row0 col2" >0.172671</td>
-      <td id="T_fbbf8_row0_col3" class="data row0 col3" >0.055667</td>
-      <td id="T_fbbf8_row0_col4" class="data row0 col4" >0.222993</td>
-      <td id="T_fbbf8_row0_col5" class="data row0 col5" >0.390638</td>
+      <th id="T_5ca16_level0_row0" class="row_heading level0 row0" >mean</th>
+      <td id="T_5ca16_row0_col0" class="data row0 col0" >0.024908</td>
+      <td id="T_5ca16_row0_col1" class="data row0 col1" >0.101811</td>
+      <td id="T_5ca16_row0_col2" class="data row0 col2" >0.191081</td>
+      <td id="T_5ca16_row0_col3" class="data row0 col3" >0.057481</td>
+      <td id="T_5ca16_row0_col4" class="data row0 col4" >0.226915</td>
+      <td id="T_5ca16_row0_col5" class="data row0 col5" >0.403991</td>
     </tr>
     <tr>
-      <th id="T_fbbf8_level0_row1" class="row_heading level0 row1" >std</th>
-      <td id="T_fbbf8_row1_col0" class="data row1 col0" >1.238147</td>
-      <td id="T_fbbf8_row1_col1" class="data row1 col1" >2.563743</td>
-      <td id="T_fbbf8_row1_col2" class="data row1 col2" >3.319102</td>
-      <td id="T_fbbf8_row1_col3" class="data row1 col3" >1.243998</td>
-      <td id="T_fbbf8_row1_col4" class="data row1 col4" >2.564006</td>
-      <td id="T_fbbf8_row1_col5" class="data row1 col5" >3.318571</td>
+      <th id="T_5ca16_level0_row1" class="row_heading level0 row1" >std</th>
+      <td id="T_5ca16_row1_col0" class="data row1 col0" >1.239902</td>
+      <td id="T_5ca16_row1_col1" class="data row1 col1" >2.562125</td>
+      <td id="T_5ca16_row1_col2" class="data row1 col2" >3.324313</td>
+      <td id="T_5ca16_row1_col3" class="data row1 col3" >1.239318</td>
+      <td id="T_5ca16_row1_col4" class="data row1 col4" >2.550730</td>
+      <td id="T_5ca16_row1_col5" class="data row1 col5" >3.322783</td>
     </tr>
     <tr>
-      <th id="T_fbbf8_level0_row2" class="row_heading level0 row2" >min</th>
-      <td id="T_fbbf8_row2_col0" class="data row2 col0" >-4.578000</td>
-      <td id="T_fbbf8_row2_col1" class="data row2 col1" >-8.196000</td>
-      <td id="T_fbbf8_row2_col2" class="data row2 col2" >-9.052000</td>
-      <td id="T_fbbf8_row2_col3" class="data row2 col3" >-4.814000</td>
-      <td id="T_fbbf8_row2_col4" class="data row2 col4" >-7.633000</td>
-      <td id="T_fbbf8_row2_col5" class="data row2 col5" >-8.318000</td>
+      <th id="T_5ca16_level0_row2" class="row_heading level0 row2" >min</th>
+      <td id="T_5ca16_row2_col0" class="data row2 col0" >-4.945000</td>
+      <td id="T_5ca16_row2_col1" class="data row2 col1" >-8.219000</td>
+      <td id="T_5ca16_row2_col2" class="data row2 col2" >-8.814000</td>
+      <td id="T_5ca16_row2_col3" class="data row2 col3" >-4.760000</td>
+      <td id="T_5ca16_row2_col4" class="data row2 col4" >-7.640000</td>
+      <td id="T_5ca16_row2_col5" class="data row2 col5" >-8.197000</td>
     </tr>
     <tr>
-      <th id="T_fbbf8_level0_row3" class="row_heading level0 row3" >25%</th>
-      <td id="T_fbbf8_row3_col0" class="data row3 col0" >-0.817250</td>
-      <td id="T_fbbf8_row3_col1" class="data row3 col1" >-1.716000</td>
-      <td id="T_fbbf8_row3_col2" class="data row3 col2" >-2.176250</td>
-      <td id="T_fbbf8_row3_col3" class="data row3 col3" >-0.794000</td>
-      <td id="T_fbbf8_row3_col4" class="data row3 col4" >-1.580000</td>
-      <td id="T_fbbf8_row3_col5" class="data row3 col5" >-1.964000</td>
+      <th id="T_5ca16_level0_row3" class="row_heading level0 row3" >25%</th>
+      <td id="T_5ca16_row3_col0" class="data row3 col0" >-0.820000</td>
+      <td id="T_5ca16_row3_col1" class="data row3 col1" >-1.714000</td>
+      <td id="T_5ca16_row3_col2" class="data row3 col2" >-2.144000</td>
+      <td id="T_5ca16_row3_col3" class="data row3 col3" >-0.791000</td>
+      <td id="T_5ca16_row3_col4" class="data row3 col4" >-1.556000</td>
+      <td id="T_5ca16_row3_col5" class="data row3 col5" >-1.961000</td>
     </tr>
     <tr>
-      <th id="T_fbbf8_level0_row4" class="row_heading level0 row4" >50%</th>
-      <td id="T_fbbf8_row4_col0" class="data row4 col0" >0.024000</td>
-      <td id="T_fbbf8_row4_col1" class="data row4 col1" >0.078000</td>
-      <td id="T_fbbf8_row4_col2" class="data row4 col2" >0.174000</td>
-      <td id="T_fbbf8_row4_col3" class="data row4 col3" >0.050000</td>
-      <td id="T_fbbf8_row4_col4" class="data row4 col4" >0.212000</td>
-      <td id="T_fbbf8_row4_col5" class="data row4 col5" >0.368000</td>
+      <th id="T_5ca16_level0_row4" class="row_heading level0 row4" >50%</th>
+      <td id="T_5ca16_row4_col0" class="data row4 col0" >0.023000</td>
+      <td id="T_5ca16_row4_col1" class="data row4 col1" >0.092000</td>
+      <td id="T_5ca16_row4_col2" class="data row4 col2" >0.193000</td>
+      <td id="T_5ca16_row4_col3" class="data row4 col3" >0.057000</td>
+      <td id="T_5ca16_row4_col4" class="data row4 col4" >0.212000</td>
+      <td id="T_5ca16_row4_col5" class="data row4 col5" >0.406000</td>
     </tr>
     <tr>
-      <th id="T_fbbf8_level0_row5" class="row_heading level0 row5" >75%</th>
-      <td id="T_fbbf8_row5_col0" class="data row5 col0" >0.864000</td>
-      <td id="T_fbbf8_row5_col1" class="data row5 col1" >1.869000</td>
-      <td id="T_fbbf8_row5_col2" class="data row5 col2" >2.519000</td>
-      <td id="T_fbbf8_row5_col3" class="data row5 col3" >0.907000</td>
-      <td id="T_fbbf8_row5_col4" class="data row5 col4" >2.018000</td>
-      <td id="T_fbbf8_row5_col5" class="data row5 col5" >2.723000</td>
+      <th id="T_5ca16_level0_row5" class="row_heading level0 row5" >75%</th>
+      <td id="T_5ca16_row5_col0" class="data row5 col0" >0.874000</td>
+      <td id="T_5ca16_row5_col1" class="data row5 col1" >1.899000</td>
+      <td id="T_5ca16_row5_col2" class="data row5 col2" >2.544000</td>
+      <td id="T_5ca16_row5_col3" class="data row5 col3" >0.904000</td>
+      <td id="T_5ca16_row5_col4" class="data row5 col4" >2.016000</td>
+      <td id="T_5ca16_row5_col5" class="data row5 col5" >2.742250</td>
     </tr>
     <tr>
-      <th id="T_fbbf8_level0_row6" class="row_heading level0 row6" >max</th>
-      <td id="T_fbbf8_row6_col0" class="data row6 col0" >5.462000</td>
-      <td id="T_fbbf8_row6_col1" class="data row6 col1" >9.169000</td>
-      <td id="T_fbbf8_row6_col2" class="data row6 col2" >10.118000</td>
-      <td id="T_fbbf8_row6_col3" class="data row6 col3" >5.215000</td>
-      <td id="T_fbbf8_row6_col4" class="data row6 col4" >9.013000</td>
-      <td id="T_fbbf8_row6_col5" class="data row6 col5" >10.679000</td>
+      <th id="T_5ca16_level0_row6" class="row_heading level0 row6" >max</th>
+      <td id="T_5ca16_row6_col0" class="data row6 col0" >4.623000</td>
+      <td id="T_5ca16_row6_col1" class="data row6 col1" >8.877000</td>
+      <td id="T_5ca16_row6_col2" class="data row6 col2" >10.228000</td>
+      <td id="T_5ca16_row6_col3" class="data row6 col3" >4.832000</td>
+      <td id="T_5ca16_row6_col4" class="data row6 col4" >9.712000</td>
+      <td id="T_5ca16_row6_col5" class="data row6 col5" >10.601000</td>
     </tr>
   </tbody>
 </table>
@@ -1746,10 +1747,10 @@ Results for trade profits (trade_30_20_profit,trade_30_10_profit) are for the gr
 </div>
 </div>
 <div class="cell_output docutils container">
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;% Of Losses long 30 short 10: 45.541%&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;% Of Losses long 30 short 10: 45.067%&#39;
 </pre></div>
 </div>
-<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;% Of Losses long 30 short 20: 47.883%&#39;
+<div class="output text_plain highlight-myst-ansi notranslate"><div class="highlight"><pre><span></span>&#39;% Of Losses long 30 short 20: 47.675%&#39;
 </pre></div>
 </div>
 </div>
@@ -1826,7 +1827,7 @@ Results for trade profits (trade_30_20_profit,trade_30_10_profit) are for the gr
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/ff02a9a4a34228f9394780b0630ed802cc0f5a1e190d853ef1eb29821809bcc2.png" src="_images/ff02a9a4a34228f9394780b0630ed802cc0f5a1e190d853ef1eb29821809bcc2.png" />
+<img alt="_images/d934d58a42593872b808acc2f966b80615a4b570f7439009f2866e52b7b49af2.png" src="_images/d934d58a42593872b808acc2f966b80615a4b570f7439009f2866e52b7b49af2.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1839,7 +1840,7 @@ Results for trade profits (trade_30_20_profit,trade_30_10_profit) are for the gr
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/c81a44999e03534a2d911e2edc58072cc26430c4e0c54f95c57b6c297c58c07e.png" src="_images/c81a44999e03534a2d911e2edc58072cc26430c4e0c54f95c57b6c297c58c07e.png" />
+<img alt="_images/e23940a85de936057cef2b36a66a190a135c315e3ccead11b087f8755776704a.png" src="_images/e23940a85de936057cef2b36a66a190a135c315e3ccead11b087f8755776704a.png" />
 </div>
 </div>
 <div class="cell docutils container">
@@ -1852,7 +1853,7 @@ Results for trade profits (trade_30_20_profit,trade_30_10_profit) are for the gr
 </div>
 </div>
 <div class="cell_output docutils container">
-<img alt="_images/269cdded1dbcebd13f75b9853b73015e13823539be1738e22a46cfc23d3dca1d.png" src="_images/269cdded1dbcebd13f75b9853b73015e13823539be1738e22a46cfc23d3dca1d.png" />
+<img alt="_images/b356cc37ebf3641979990a6cb6de17a6b9415fc375bf9c15e950b3017c5421a6.png" src="_images/b356cc37ebf3641979990a6cb6de17a6b9415fc375bf9c15e950b3017c5421a6.png" />
 </div>
 </div>
 </section>

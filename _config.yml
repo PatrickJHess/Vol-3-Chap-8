@@ -1,8 +1,7 @@
 # Book settings
 # Learn more at https://jupyterbook.org/customize/config.html
 
-title: "Basic Concepts of Fixed Income: Convexity And Interest Risk
-Hundred Bonds"
+title: "Basic Concepts of Fixed Income: Convexity And Interest Rate Risk"
 author: 'Financial Python'
 copyright: "2026, Arbitrage Partners"  # Updated to your specific name/year
  
