@@ -20,7 +20,7 @@ $$V(\text{ytm}+\Delta \text{ytm})-V(\text{ytm})\approx -\Delta \text{ytm}\times\
 
 The general form of a Taylor series expansion is:
 
-$$f(x+\Delta x)\approx \sum\_{i=1}^{N}\frac{d^{i}f(x)}{dx^{i}}\times\frac{1}{i\!}\Delta x^{i}$$
+$$f(x+\Delta x)\approx\sum_{i=1}^{N}\frac{d^{i}f(x)}{dx^{i}}\times\frac{1}{i!}\Delta x^{i}$$
 
 Convexity is defined using the second-order Taylor series expansion:
 
